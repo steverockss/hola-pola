@@ -31,6 +31,10 @@ import {SultanaComponent} from "./casas/sultana/sultana.component";
 import {HakunaComponent} from "./casas/hakuna/hakuna.component";
 import {KalimaComponent} from "./casas/kalima/kalima.component";
 import {LaTrochaHouseComponent} from "./casas/la-trocha-house/la-trocha-house.component"
+import {AleComponent} from "./pola-type/ale/ale.component";
+import {IpaComponent} from "./pola-type/ipa/ipa.component";
+import {LagerComponent} from "./pola-type/lager/lager.component";
+import {StoutComponent} from "./pola-type/stout/stout.component";
 import {FacturasComponent} from "./facturas/facturas.component";
 
 const routes: Routes = [
@@ -61,6 +65,10 @@ const routes: Routes = [
       { path: "casas/la-trocha", component: LaTrochaHouseComponent },
       { path: "duos/chocolate", component: ChocolateComponent },
       { path: "testimonios", component: TestimoniosComponent },
+      {path:"tipos/ale", component: AleComponent},
+      {path:"tipos/ipa", component: IpaComponent},
+      {path:"tipos/lager", component: LagerComponent},
+      {path:"tipos/stout", component: StoutComponent},
       { path: "facturas", component: FacturasComponent },
       { path: "shopping-cart", component: ShoppingCartComponent },
 

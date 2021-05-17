@@ -59,8 +59,8 @@ hr.yellow {
 }
 .pola-card {
   border: 0.1px solid #c8c2c2;
-  min-width: 18rem;
-  max-width: 18rem;
+  min-width: 15rem;
+  max-width: 15rem;
   border-radius: 15%;
 }
 
@@ -134,7 +134,36 @@ hr.yellow {
   padding: 10%;
 }
 
-
-div{
+div {
   line-height: 1.9;
+}
+
+.recipe-title {
+  font-size: 100px;
+}
+.pola-card .card-img-top {
+  width: 100%;
+  height: 25vh;
+  object-fit: contain;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: #f1eb78;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+  background-color: transparent;
+  text-decoration: underline;
+}
+a:active {
+  color: #f1eb78;
+  background-color: transparent;
+  text-decoration: underline;
 }
