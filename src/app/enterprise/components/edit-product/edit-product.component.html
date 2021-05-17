@@ -1,0 +1,177 @@
+<div class="wrapper">
+  <div
+    class="page-header page-header-xs"
+    data-parallax="true"
+    style="background-image: url('./assets/img/more-potatoes.jpg')"
+  >
+    <div class="filter"></div>
+  </div>
+
+  <div class="section">
+    <div class="container">
+      <h2 class="title">Edición de productos</h2>
+    </div>
+    <div class="container login-container">
+      <div class="col-6-lg col-8-md login-form-3 mt-5 mx-auto d-block">
+        <h3>Edita el producto</h3>
+        <img
+          src="https://www.flaticon.es/svg/vstatic/svg/2919/2919592.svg?token=exp=1610588010~hmac=7b24fe2a26def3bdcb8370d1e51fc8d1"
+          class="rounded mx-auto d-block"
+          width="100"
+        />
+
+        <form
+          (ngSubmit)="onSubmit()"
+          #productEditForm="ngForm"
+          class="mt-2 text-white"
+        >
+          <div class="form-group">
+            <label>Nombre del producto</label>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              #name="ngModel"
+              [(ngModel)]="product.name"
+              [ngClass]="{
+                'is-invalid': !name.valid
+              }"
+              class="form-control"
+            
+              required
+              placeholder="Nombre del producto"
+              pattern="^[a-zA-ZñÑ \u00E0-\u00FC]+$"
+            />
+            <div *ngIf="!name.valid" class="invalid-feedback">
+              <div *ngIf="name.errors.required">
+                El nombre del producto es requerido
+              </div>
+              <div *ngIf="name.errors.pattern">
+                El nombre del producto no puede contener números ni caracteres
+                especiales
+              </div>
+              <div *ngIf="name.errors.minlength">
+                El nombre del producto es muy corto
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Cantidad disponible</label>
+            <input
+            [(ngModel)]="product.quantity"
+              type="text"
+              name="quantity"
+              id="quantity"
+              #quantity="ngModel"
+              pattern="^[0-9]*$"
+              required
+              [ngClass]="{
+                'is-invalid': !quantity.valid
+              }"
+              class="form-control"
+              placeholder="Cantidad en kg"
+              maxlength="6"
+            />
+            <div *ngIf="!quantity.valid" class="invalid-feedback">
+              <div *ngIf="quantity.errors.required">
+                La cantidad de producto es requerida
+              </div>
+              <div *ngIf="quantity.errors.pattern">
+                El cantidad del producto debe ser numérica
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Precio unitario</label>
+            <input
+              type="text"
+              [(ngModel)]="product.unitaryPrice"
+              name="unitaryPrice"
+              id="unitaryPrice"
+              #unitaryPrice="ngModel"
+              pattern="^[0-9]*$"
+              [ngClass]="{
+                'is-invalid': !unitaryPrice.valid
+              }"
+              class="form-control"
+              placeholder="Precio en pesos"
+              maxlength="7"
+            />
+            <div *ngIf="!unitaryPrice.valid" class="invalid-feedback">
+              <div *ngIf="unitaryPrice.errors.required">
+                La precio del producto es requerido
+              </div>
+              <div *ngIf="unitaryPrice.errors.pattern">
+                El precio del producto debe ser numérico
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Descripción</label>
+            <textarea
+              class="form-control"
+              name="description"
+              id="description"
+              [(ngModel)]="product.description"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="form-group mx-auto d-block">
+            <label>Categoría del producto</label>
+            <select
+            [(ngModel)]="product.category.categoryId"
+              class="form-control"
+              name="productCategory"
+              id="productCategory"
+              #productCategory="ngModel"
+            >
+              <option
+                [value]="category.categoryId"
+                *ngFor="let category of productCategories"
+              >
+                {{ category.name }}
+              </option>
+            </select>
+            <div
+              *ngIf="!productCategory.valid"
+              class="invalid-feedback"
+            >
+              <div *ngIf="productCategory.errors.required">
+                La categoría del producto es requerida
+              </div>
+            </div>
+          </div>
+          <label>Imagen del producto</label>
+          <div class="custom-file form-group mx-auto d-block">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="customFileLang"
+              lang="es"
+       
+            />
+            <label class="custom-file-label" for="customFileLang"
+              >Seleccionar Archivo</label
+            >
+          </div>
+          <div class="form-group mt-2 text-center" *ngIf="">
+            <img [src]="" width="200" height="200" />
+          </div>
+
+          <div class="text-center mt-5">
+            <button
+              type="submit"
+              class="btn btn-primary btn round"
+              [disabled]="!productEditForm.valid"
+            >
+              Editar producto
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

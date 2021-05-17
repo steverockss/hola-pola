@@ -1,0 +1,73 @@
+<div class="wrapper">
+    <div
+      class="page-header page-header-xs"
+      data-parallax="true"
+      style="background-image: url('./assets/img/sibate1.jpg')"
+    >
+      <div class="filter"></div>
+    </div>
+    <div class="section container">
+      <h2 class="title">Mis pedidos</h2>
+      <blockquote class="blockquote">
+        <p class="mb-2 text-center">
+          Aquí puedes revisar los detalles de todos los  pedidos que se han realizado recuerda actualizar su estado
+        </p>
+      </blockquote>
+      <hr />
+      <div class="card-columns card-group col-md-9" *ngIf="!orders">
+        <h2>No tienes ninguna orden</h2>
+      </div>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Número pedido</th>
+            <th scope="col">Costo total</th>
+            <th scope="col">Estado</th>
+            <th scope="col">Productos</th>
+            <th scope="col">Comprador</th>
+            <th scope="col">Dirección entrega</th>
+            <th scope="col"></th>
+            <th scope="col">Cambiar estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let order of orders">
+            <td data-label = "Número pedido" class="order-info" scope="row">{{ order.id }}</td>
+            <td data-label = "Costo total" class="order-info">{{ order.totalCost |  currency }}</td>
+            <td data-label = "Estado" class="order-info">{{ order.status }}</td>
+            <td data-label = "Productos" class="order-info">
+              <ul *ngFor="let product of order.products">
+                <li>{{ product.quantity }} {{ product.product.name }}</li>
+              </ul>
+            </td>
+            <td data-label = "Comprador" class="order-info">
+              {{ order.buyer.username }}
+            </td>
+            <td data-label = "Dirección entrega" class="order-info">
+                {{ order.buyer.address}}
+            </td>
+            <td *ngIf="order.status == OrderStatus.Creado">
+              <button
+                class="btn btn-danger btn-round"
+                (click)="cancelOrder(order.id)"
+              >
+                Cancelar pedido
+              </button>
+            </td>
+            <td *ngIf="order.status != OrderStatus.Creado">
+              Este pedido no puede ser cancelado
+            </td>
+            <td *ngIf="order.status != OrderStatus.Finalizado && order.status != OrderStatus.Cancelado ">
+                <button
+                  class="btn btn-success btn-round"
+                  (click)="updateOrderState(order)"
+                >
+                  Actualizar estado
+                </button>
+              </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  

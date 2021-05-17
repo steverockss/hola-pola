@@ -1,0 +1,25 @@
+.topnav.responsive .dropdown-content {position: relative;}
+.navbar-brand{
+    padding: 5px !important;
+}
+.navbar-brand img{
+    filter: opacity(0.7);
+}
+.navbar-transparent img{
+    filter: invert(1);
+}
+.navbar-brand img{
+    height: 4rem;
+    width: auto;
+}
+
+@media (max-width: 991px){
+.dropdown-menu {
+    position: relative;
+    height:fit-content !important;
+    margin-bottom: 1rem;
+}
+.navbar-brand {
+    font-size: 3vw !important;
+}
+}

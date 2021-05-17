@@ -1,0 +1,194 @@
+<div class="wrapper">
+  <div
+    class="page-header page-header-xs"
+    data-parallax="true"
+    style="background-image: url('./assets/img/more-potatoes.jpg')"
+  >
+    <div class="filter"></div>
+  </div>
+
+  <div class="section container">
+    <h2 class="title">Creación de productos</h2>
+
+    <hr />
+    <div class="container login-container">
+      <div class="col-6-lg col-8-md login-form-3 mt-5 mx-auto d-block">
+        <h3>Crear un producto nuevo</h3>
+        <img
+          src="https://www.flaticon.es/svg/static/icons/svg/859/859270.svg"
+          class="rounded mx-auto d-block"
+          width="100"
+        />
+
+        <form
+          (ngSubmit)="onSubmit()"
+          [formGroup]="newProductForm"
+          class="mt-2 text-white"
+        >
+          <div class="form-group">
+            <label>Nombre del producto</label>
+            <input
+              type="text"
+              formControlName="name"
+              [ngClass]="{
+                'is-invalid': f.name.dirty && f.name.errors
+              }"
+              class="form-control"
+              placeholder="Nombre del producto"
+            />
+            <div *ngIf="f.name.dirty && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">
+                El nombre del producto es requerido
+              </div>
+              <div *ngIf="f.name.errors.pattern">
+                El nombre del producto no puede contener números ni caracteres
+                especiales
+              </div>
+              <div *ngIf="f.name.errors.minlength">
+                El nombre del producto es muy corto
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Unidad</label>
+            <select
+              class="form-control"
+              formControlName="unit"
+              [ngClass]="{
+                'is-invalid':
+                  f.unit.dirty && f.unit.errors
+              }"
+            >
+              <option value="">Selecciona la unidad de medida del producto del producto</option>
+              <option
+                [value]="unit"
+                *ngFor="let unit of units"
+              >
+                {{ unit }}
+              </option>
+            </select>
+            <div
+              *ngIf="f.productCategory.dirty && f.productCategory.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.productCategory.errors.required">
+                La categoría del producto es requerida
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Cantidad disponible </label>
+            <input
+              type="text"
+              formControlName="quantity"
+              [ngClass]="{
+                'is-invalid': f.quantity.dirty && f.quantity.errors
+              }"
+              class="form-control"
+              placeholder="Cantidad disponible de producto"
+              maxlength="6"
+            />
+            <div
+              *ngIf="f.quantity.dirty && f.quantity.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.quantity.errors.required">
+                La cantidad de producto es requerida
+              </div>
+              <div *ngIf="f.quantity.errors.pattern">
+                El cantidad del producto debe ser numérica
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Precio unitario</label>
+            <input
+              type="text"
+              formControlName="unitaryPrice"
+              [ngClass]="{
+                'is-invalid': f.unitaryPrice.dirty && f.unitaryPrice.errors
+              }"
+              class="form-control"
+              placeholder="Precio en pesos"
+              maxlength="7"
+            />
+            <div
+              *ngIf="f.unitaryPrice.dirty && f.unitaryPrice.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.unitaryPrice.errors.required">
+                La precio del producto es requerido
+              </div>
+              <div *ngIf="f.unitaryPrice.errors.pattern">
+                El precio del producto debe ser numérico
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="">Descripción</label>
+            <textarea
+              class="form-control"
+              formControlName="description"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="form-group mx-auto d-block">
+            <label>Categoría del producto</label>
+            <select
+              class="form-control"
+              formControlName="productCategory"
+              [ngClass]="{
+                'is-invalid':
+                  f.productCategory.dirty && f.productCategory.errors
+              }"
+            >
+              <option value="">Selecciona la categoría del producto</option>
+              <option
+                [value]="category.categoryId"
+                *ngFor="let category of productCategories"
+              >
+                {{ category.name }}
+              </option>
+            </select>
+            <div
+              *ngIf="f.productCategory.dirty && f.productCategory.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.productCategory.errors.required">
+                La categoría del producto es requerida
+              </div>
+            </div>
+          </div>
+          <label>Imagen del producto</label>
+          <div class="custom-file form-group mx-auto d-block">
+            <input
+              type="file"
+              class="custom-file-input"
+              id="customFileLang"
+              lang="es"
+              (change)="fileChangeEvent($event)"
+            />
+            <label class="custom-file-label" for="customFileLang"
+              >{{fileName}}</label
+            >
+          </div>
+          <div class="form-group mt-2 text-center" *ngIf="isImageSaved">
+            <img [src]="cardImageBase64" width="200" height="200" />
+          </div>
+
+          <div class="text-center mt-5">
+            <button
+              type="submit"
+              class="btn btn-primary btn round"
+              [disabled]="!newProductForm.valid"
+            >
+              Crear producto
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

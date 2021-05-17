@@ -1,0 +1,124 @@
+<div class="wrapper">
+  <div
+    class="page-header page-header-xs"
+    data-parallax="true"
+    style="background-image: url('./assets/img/vegetable.jpg')"
+  >
+    <div class="filter"></div>
+  </div>
+
+  <div class="section">
+    <div class="product-container">
+      <h2 class="title">Productos</h2>
+
+      <div class="row product">
+        <div class="col-md-3">
+          <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0">
+            <ngb-panel title="Filtros">
+              <ng-template ngbPanelContent>
+                <form (ngSubmit)="filterProduct()" #filterProductForm="ngForm">
+                  <label class="form-label">Categorias</label>
+
+                  <select
+                    class="form-control"
+                    [(ngModel)]="categorySelected"
+                    id="category"
+                    name="category"
+                    #category="ngModel"
+                  >
+                    <option value="" selected>Todas</option>
+                    <option
+                      *ngFor="let category of productCategories" 
+                      value="{{ category.categoryId }}"
+                    >
+                      {{ category.name }}
+                    </option>
+                  </select>
+                  <div class="card-footer text-center">
+                    <button class="btn btn-success">Filtrar</button>
+                  </div>
+                </form>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+
+          <ngb-accordion activeIds="ngb-panel-0">
+            <ngb-panel title="Búsqueda">
+              <ng-template ngbPanelContent>
+                <div class="search mx-auto">
+                  <form
+                    class="form-inline"
+                    (ngSubmit)="searchProduct()"
+                    #searchProductForm="ngForm"
+                  >
+                    <div class="form-group">
+                      <input
+                        class="form-control"
+                        placeholder="Buscar"
+                        [(ngModel)]="searchContent"
+                        id="search"
+                        name="search"
+                        #search="ngModel"
+                        type="text"
+                      />
+                    </div>
+
+                    <button class="btn btn-just-icon" type="submit">
+                      <i class="fa fa-search"></i>
+                    </button>
+                  </form>
+                </div>
+              </ng-template>
+            </ngb-panel>
+          </ngb-accordion>
+        </div>
+        <div class="card-columns col-md-9" *ngIf="products">
+          <div class="card" *ngFor="let product of products">
+            <img
+              class="card-img-top"
+              src="{{ product.images[0].url }}"
+              alt="{{ product.name }}"
+            />
+            <div class="card-body">
+              <h4 class="card-title">{{ product.name }}</h4>
+              <p class="card-description">
+                {{ product.description }} <br />
+                <b>Categoria:</b> {{ product.category.name }}
+              </p>
+              <div class="price">
+                <h3>{{ product.unitaryPrice | currency }}</h3>
+              </div>
+              <div class="card-footer">
+                <div class="add-to-cart">
+                  <button
+                    type="button"
+                    class="btn btn-outline-info btn-round"
+                    (click)="addToCart(product)"
+                    *ngIf="currentRole == 'BUYER'"
+                  >
+                    <i class="fas fa-shopping-cart"></i>
+                  </button>
+                </div>
+                <div class="detail">
+                  <button
+                    type="button"
+                    class="btn btn-outline-success btn-round"
+                    [routerLink]="['./', product.id]"
+                  >
+                    Ver más
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="card-columns card-group col-md-9"
+          *ngIf="!products"
+        >
+          <h2>Este vendedor no tiene productos aún</h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

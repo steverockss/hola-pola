@@ -1,0 +1,15 @@
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10%;
+    height: auto;
+  }
+
+  .footer-text{
+      text-transform: uppercase;
+  }
+  hr.red {
+    border: 1px solid#DE5267;
+  }
+  

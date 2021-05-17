@@ -1,0 +1,115 @@
+<div class="wrapper">
+  <div
+    class="page-header page-header-xs"
+    data-parallax="true"
+    style="background-image: url('./assets/img/more-potatoes.jpg')"
+  >
+    <div class="filter"></div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <h2 class="title">Solicitud para venta de productos</h2>
+      <hr />
+      <img
+        src="https://www.flaticon.es/svg/static/icons/svg/3662/3662789.svg"
+        class="rounded mx-auto d-block"
+        width="100"
+      />
+      <div class="row">
+        <form
+          (ngSubmit)="onSubmit()"
+          [formGroup]="sellerRequestForm"
+          class="mt-5 form-container mx-auto d-block"
+        >
+          <div class="form-group">
+            <label>Pedido mínimo ($)</label>
+            <input
+              maxlength="7"
+              type="text"
+              formControlName="minimumOrder"
+              [ngClass]="{
+                'is-invalid': f.minimumOrder.dirty && f.minimumOrder.errors
+              }"
+              class="form-control"
+              placeholder="Pedido mínimo en pesos"
+            />
+            <div
+              *ngIf="f.minimumOrder.dirty && f.minimumOrder.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.minimumOrder.dirty">
+                El pedido mínimo es requerido
+              </div>
+              <div *ngIf="f.minimumOrder.errors.pattern">
+                El pedido mínimo debe ser un valor numérico
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Cobertura envío</label>
+            <textarea
+              type="text"
+              formControlName="shippingCoverage"
+              [ngClass]="{
+                'is-invalid':
+                  f.shippingCoverage.dirty && f.shippingCoverage.errors
+              }"
+              class="form-control"
+              rows="3"
+              placeholder="Cobertura del envío"
+            ></textarea>
+            <div
+              *ngIf="f.shippingCoverage.dirty && f.shippingCoverage.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.shippingCoverage.errors.required">
+                La cobertura de envío es requerida
+              </div>
+              <div *ngIf="f.shippingCoverage.errors.pattern">
+                No se permiten caracteres especiales en la cobertura
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Costo de envío estimado</label>
+            <input
+              class="form-control"
+              maxlength="6"
+              formControlName="shippingEstimateCost"
+              [ngClass]="{
+                'is-invalid':
+                  f.shippingEstimateCost.dirty && f.shippingEstimateCost.errors
+              }"
+              placeholder="Costo de envío estimado"
+            />
+            <div
+              *ngIf="
+                f.shippingEstimateCost.dirty && f.shippingEstimateCost.errors
+              "
+              class="invalid-feedback"
+            >
+              <div *ngIf="f.shippingEstimateCost.errors.required">
+                El costo estimado del envío es requerido
+              </div>
+              <div *ngIf="f.shippingEstimateCost.errors.pattern">
+                El costo estimado debe ser numérico
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-5">
+            <button
+              type="submit"
+              class="btn btn-primary btn round"
+              [disabled]="!sellerRequestForm.valid"
+            >
+              Solicitar vender
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+h4.description{
+    text-align: justify;
+    line-height: 150%;
+}
+
+.carousel{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.carousel img{
+    width: 100%;
+    height: auto;
+}
+
+  

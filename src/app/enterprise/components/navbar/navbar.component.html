@@ -1,0 +1,108 @@
+<nav
+  class="navbar navbar-expand-lg fixed-top navbar-transparent"
+  color-on-scroll="500"
+>
+  <div class="container-fluid ml-2 mr-5">
+    <div class="navbar-translate">
+      <a class="navbar-brand" [routerLink]="['home']">
+        <img src="https://sibate-ptc.s3.amazonaws.com/resources/2nd+bk+long.png" alt="Portal turístico y comercial - Sibaté">
+        </a
+      >
+      <button
+        class="navbar-toggler navbar-burger"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarToggler"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        (click)="sidebarToggle()"
+      >
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse" id="navbarToggler">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['new-product']"
+            *ngIf="currentRole == 'SELLER'"
+          >
+            <i class="fas fa-plus-circle"></i>
+            Crear productos
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['add-info']"
+            ><i class="fas fa-folder-plus"></i> Publicar información</a
+          >
+        </li>
+
+        <li class="nav-item"></li>
+        <li class="nav-item" *ngIf="currentRole == 'ORGANIZATION'">
+          <a class="nav-link" [routerLink]="['sell-request']"
+            ><i class="far fa-hand-pointer"></i> Solicitar vender</a
+          >
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['orders']"
+            *ngIf="currentRole == 'SELLER'"
+            ><i class="fas fa-clipboard-list"></i> Mis pedidos</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            [routerLink]="['change-password']"
+            *ngIf="currentRole != ''"
+            ><i class="fas fa-lock"></i> Cambiar contraseña</a
+          >
+        </li>
+        <li>
+          <div class="dropdown">
+            <button
+              class="btn btn-success dropdown-toggle"
+              id="dropdownMenu2"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Edición
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <a
+                class="dropdown-item"
+                [routerLink]="['list-products']"
+                *ngIf="currentRole == 'SELLER'"
+              >
+                <i class="fas fa-edit"></i>
+                Editar productos
+              </a>
+              <a class="dropdown-item" [routerLink]="['edit-my-info']">
+                <i class="fas fa-edit"></i>
+                Editar mis datos
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button
+            class="nav-link"
+            class="btn btn-danger btn-round"
+            (click)="logOut()"
+          >
+            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>

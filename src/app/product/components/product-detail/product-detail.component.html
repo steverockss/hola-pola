@@ -1,0 +1,151 @@
+<div class="wrapper">
+  <div
+    class="page-header page-header-xs"
+    data-parallax="true"
+    style="background-image: url('./assets/img/pumpkin.jpg')"
+  >
+    <div class="filter"></div>
+  </div>
+
+  <div class="section">
+    <div class="container " *ngIf="product">
+      <h2 class="title">{{ product.name }}</h2>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="hovereffect">
+            <img
+              src="{{ product.images[0].url }}"
+              class="img-fluid rounded"
+              weight="50"
+              alt="Responsive image"
+            />
+            <div class="overlay">
+              <h2>{{ product.name }}</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 ml-2 description_text">
+          <h4>
+            <b>{{ product.name }}</b>
+          </h4>
+          <h4>{{ product.unitaryPrice | currency }} COP</h4>
+          <hr />
+          <p>
+            {{ product.description }}
+          </p>
+          <hr />
+          <b>Categoría:</b> {{ product.category.name }} <br />
+
+          <b>Cantidad disponible:</b> {{ product.quantity }} {{ product.unit
+          }}<br />
+          <hr />
+          <b>Rating:</b> <br />
+
+          <ngb-rating
+            [max]="5"
+            [rate]="product.rate"
+            [readonly]="true"
+          ></ngb-rating>
+          {{ product.rate }} estrellas
+
+          <hr />
+          <div class="add-to-cart">
+            <button
+              type="button"
+              class="btn btn-info btn-round"
+              *ngIf="currentRole == 'BUYER'"
+              (click)="addToCart()"
+            >
+              Añadir al carrito de compras
+            </button>
+          </div>
+          <hr />
+          <form (ngSubmit)="onSubmit()" #ratingForm="ngForm" *ngIf="currentRole == 'BUYER'"
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          
+          >
+            <div class="form-group">
+              <label>Comentario</label>
+              <textarea
+                class="form-control"
+                name="description"
+                id="description"
+                [(ngModel)]="rating.description"
+                rows="3"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label>Calificación</label>
+              <ngb-rating
+              [max]="5"
+              [rate]="5"
+              name="rate"
+              id="rate"
+              [(ngModel)]="rating.rate"
+              [readonly]="false"
+            ></ngb-rating>
+            </div>
+          <button type="sumbit" class="btn btn-primary">Calificar</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

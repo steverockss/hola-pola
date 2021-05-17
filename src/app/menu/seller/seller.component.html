@@ -1,0 +1,60 @@
+<div class="wrapper">
+  <div
+    class="page-header page-header-small"
+    data-parallax="true"
+    style="background-image: url('./assets/img/chelarte.jpeg')"
+  >
+    <div class="filter"></div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <h2 class="title">Vendedores</h2>
+      <hr />
+      <div class="row">
+        <div class="card-columns card-group mr-auto ml-auto" *ngIf="sellers">
+          <div
+            class="card"
+            style="min-width: 18rem; max-width: 18rem"
+            *ngFor="let seller of sellers"
+          >
+            <img
+              class="card-img-top"
+              src="{{ seller.logo.url }}"
+              alt="Card image cap"
+            />
+            <div class="card-body">
+              <h4 class="card-title">{{ seller.firstName }}</h4>
+              <h5 class="card-text">{{ seller.username }}</h5>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">
+                <b>Cobertura:</b>{{ seller.sellerInfo.shippingCoverage }}
+              </li>
+              <li class="list-group-item">
+                <b>Costo de envío:</b>
+                {{ seller.sellerInfo.estimatedShippingCost | currency }}
+              </li>
+              <li class="list-group-item">
+                <b>Pedido mínimo:</b>
+                {{ seller.sellerInfo.minimumOrder | currency }}
+              </li>
+              <li class="list-group-item">
+                <b>Correo electronico:</b> {{ seller.email }}
+              </li>
+            </ul>
+
+            <div class="card-body">
+              <button
+                type="button"
+                class="btn btn-outline-info btn-round text-center"
+                [routerLink]="['/products', seller.documentNumber]"
+              >
+                Ver productos
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

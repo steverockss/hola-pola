@@ -1,0 +1,237 @@
+<div class="wrapper">
+  <div
+    class="page-header page-header-xs"
+    data-parallax="true"
+    style="background-image: url('./assets/img/sibate1.jpg')"
+  >
+    <div class="filter"></div>
+  </div>
+  <div class="section">
+    <div class="container">
+      <h2 class="title">Edición de datos</h2>
+    </div>
+    <div class="container login-container">
+      <div class="col-md-6 col-sm-8 login-form-2 mt-5 mx-auto d-block">
+        <h3>Edita tus datos</h3>
+        <hr />
+        <img
+          src="../../../../assets/img/edit.svg"
+          class="rounded mx-auto d-block"
+          width="100"
+        />
+        <form
+          (ngSubmit)="onSubmit()"
+          #organizationEditForm="ngForm"
+          class="text-white"
+        >
+          <div class="form-group">
+            <label>Nombre</label>
+            <input
+              type="text"
+              [(ngModel)]="organization.firstName"
+              [ngClass]="{
+                'is-invalid': !firstName.valid
+              }"
+              class="form-control"
+              name="firstName"
+              id="firstName"
+              placeholder="Nombre *"
+              #firstName="ngModel"
+              required
+              minlength="4"
+              pattern="^[a-zA-ZñÑ \u00E0-\u00FC]+$"
+            />
+            <div *ngIf="!firstName.valid" class="invalid-feedback">
+              <div *ngIf="firstName.errors.required">
+                El nombre es requerido
+              </div>
+              <div *ngIf="firstName.errors.pattern">
+                El nombre no puede contener números ni caracteres especiales
+              </div>
+              <div *ngIf="firstName.errors.minlength">
+                El nombre es muy corto
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Nombre de usuario</label>
+            <input
+              disabled
+              type="text"
+              id="username"
+              #username="ngModel"
+              [(ngModel)]="organization.username"
+              class="form-control"
+              name="username"
+              placeholder="Nombre de usuario *"
+              required
+              minLength="4"
+              pattern="^[a-zA-ZñÑ \u00E0-\u00FC]+$"
+              maxlength="20"
+            />
+            <div
+              *ngIf="username.dirty && username.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="username.errors.required">
+                El nombre de usuario es requerido
+              </div>
+              <div *ngIf="username.errors.minlength">
+                El nombre de usuario es muy corto
+              </div>
+              <div *ngIf="username.errors.pattern">
+                El nombre no puede contener caracteres especiales ni espacios
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tipo de documento</label>
+            <select
+              disabled
+              class="form-control"
+              [(ngModel)]="organization.documentType"
+              name="documentType"
+            >
+              <option value="1">Cédula de ciudadanía</option>
+              <option value="2">NIT</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Número de documento</label>
+            <input
+              disabled
+              type="text"
+              [(ngModel)]="organization.documentNumber"
+              class="form-control"
+              maxlength="12"
+              id="documentNumber"
+              name="documentNumber"
+              placeholder="Número de identificación *"
+              #documentNumber="ngModel"
+              pattern="^[0-9]*$"
+              minlength="6"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label>Correo electronico</label>
+            <input
+              disabled
+              id="email"
+              #email="ngModel"
+              type="text"
+              name="email"
+              class="form-control"
+              [(ngModel)]="organization.email"
+              placeholder="Correo electrónico *"
+              required
+              pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            />
+            <div *ngIf="email.errors" class="invalid-feedback">
+              <div *ngIf="email.errors.required">El email es requerido</div>
+              <div *ngIf="email.errors.pattern">El email no es válido</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Número de teléfono celular</label>
+            <input
+              id="mobilePhone"
+              #mobilePhone="ngModel"
+              type="text"
+              [ngClass]="{
+                'is-invalid': !mobilePhone.valid
+              }"
+              maxlength="10"
+              minlength="10"
+              [(ngModel)]="organization.mobilePhone"
+              name="mobilePhone"
+              class="form-control"
+              pattern="^[0-9]*$"
+              placeholder="Número de celular *"
+            />
+            <div
+              *ngIf="mobilePhone.dirty && mobilePhone.errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="mobilePhone.errors.required">
+                El número de celular es requerido
+              </div>
+              <div *ngIf="mobilePhone.errors.pattern">
+                El número de celular solo puede contener números
+              </div>
+              <div *ngIf="mobilePhone.errors.minlength">
+                El número de celular debe tener 10 dígitos
+              </div>
+              <div *ngIf="mobilePhone.errors.maxlength">
+                El número de celular debe tener 10 dígitos
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Tipo de organización</label>
+            <select
+              class="form-control"
+              [(ngModel)]="organization.organizationType.typeId"
+              name="organizationType"
+            >
+              <option
+                *ngFor="let type of organizationTypes"
+                value="{{ type.typeId }}"
+              >
+                {{ type.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Categoría de organización</label>
+            <select
+              id="category"
+              class="form-control"
+              [(ngModel)]="organization.organizationCategory.categoryId"
+              name="organizationCategory"
+              #category="ngModel"
+            >
+              <option value="">Escoge la categoría de la organización</option>
+              <option
+                *ngFor="let category of organizationCategories"
+                [value]="category.categoryId"
+              >
+                {{ category.name }}
+              </option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Visibilidad organización</label>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  #hidden="ngModel"
+                  id="hidden"
+                  name="hidden"
+                  [(ngModel)]="organization.hidden"
+                  value="true"
+                />
+                Oculto
+
+                <span class="form-check-sign"></span>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group text-center mt-5">
+            <button
+              type="submit"
+              class="btn btn-danger btn-round"
+              [disabled]="!organizationEditForm.form.valid"
+            >
+              Editar información
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
