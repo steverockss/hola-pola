@@ -40,6 +40,8 @@ import { AltoComponent } from "./pola-amargor/alto/alto.component";
 import { BajoComponent } from "./pola-amargor/bajo/bajo.component";
 import { BajoMedioComponent } from "./pola-amargor/bajo-medio/bajo-medio.component";
 import { MedioComponent } from "./pola-amargor/medio/medio.component";
+import {PolasComponent} from "./polas/polas.component"
+import{ShoppingCarComponent} from "./shopping-car/shopping-car.component"
 
 const routes: Routes = [
   {
@@ -79,6 +81,8 @@ const routes: Routes = [
       { path: "tipos/bajo-medio", component: BajoMedioComponent },
       { path: "tipos/alto", component: AltoComponent },
       { path: "shopping-cart", component: ShoppingCartComponent },
+      {path:"polas", component: PolasComponent},
+      {path:"shopping-car",component: ShoppingCarComponent},
 
       { path: "organizations", component: OrganizationComponent },
 

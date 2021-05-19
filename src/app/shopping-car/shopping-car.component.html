@@ -1,0 +1,101 @@
+<div class="wrapper">
+    <div
+      class="page-header page-header-xs"
+      data-parallax="true"
+      style="background-image: url('./assets/img/vegetable.jpg')"
+    >
+      <div class="filter"></div>
+    </div>
+  
+    <div class="section">
+      <div class="container">
+        <div class="owner">
+          <h2 class="title">Carro de compras</h2>
+      
+          <hr />
+          <section>
+            <div class="spacer">
+              <div class="container">
+                <div class="row mt-5">
+                  <div class="col-lg-12">
+                    <div class="row shop-listing">
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th class="b-0">Producto</th>
+                            <th class="b-0">Nombre</th>
+                            <th class="b-0">Precio unitario</th>
+                            <th class="b-0">Cantidad</th>
+                            <th class="b-0">Total</th>
+                            <th class="b-0">Eliminar</th>
+                          </tr>
+                        </thead>
+  
+                        <tbody *ngIf="polasItems">
+                          <tr *ngFor="let pola of polasItems">
+                            <td data-label = "Producto" class="order-info">
+                            
+                              <img
+                                src="{{ pola.pola.image}}"
+                                class="img-fluid rounded shadow-sm"
+                                width="90"
+                                alt="{{ pola.pola }}"
+                              />
+                            </td>
+                            <td data-label = "Nombre" class="order-info">{{ pola.pola.name }}</td>
+                            <td data-label = "Precio unitario" class="order-info">{{ pola.price | currency }}</td>
+                            <td data-label = "Cantidad" class="order-info">
+                              <button
+                                class="btn btn-primary btn-sm"
+                                
+                              >
+                                -
+                              </button>
+                              {{ pola.quantity }}
+ 
+                              <button
+                                class="btn btn-primary btn-sm"
+                               
+                              >
+                                +
+                              </button>
+                            </td>
+                            <td data-label = "Total" class="order-info">
+                              {{ pola.price | currency }}
+                            </td>
+                            <td data-label = "Eliminar" class="order-info">
+                              <button
+                                class="btn btn-danger btn-sm"
+                                (click)="removeFromCart(pola)"
+                              >
+                              
+                              <i class="fas fa-trash"></i>
+                              </button>
+                            </td>
+                          </tr>
+                        </tbody>
+                        <tr>
+                          <td colspan="5" align="right">
+                            Subtotal : {{ 500 | currency }}
+                          </td>
+                          <td colspan="4" align="right">
+                            <button
+                              class="btn btn-success"
+                              
+                            >
+                              Crear pedido
+                            </button>
+                          </td>
+                        </tr>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+  

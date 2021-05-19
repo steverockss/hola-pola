@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { CartItem } from "app/core/models/cartItem";
+import { PolaItem } from "app/core/models/polaItem";
 import { BehaviorSubject } from "rxjs";
 
 @Injectable({
@@ -7,8 +8,10 @@ import { BehaviorSubject } from "rxjs";
 })
 export class CartService {
   products: CartItem[] = [];
+  polas: PolaItem[] = [];
   sellerId;
   private cart = new BehaviorSubject<CartItem[]>([]);
+  private cartp = new BehaviorSubject<PolaItem[]>([]);
 
   cart$ = this.cart.asObservable();
 
@@ -18,9 +21,6 @@ export class CartService {
   }
   addToCart(product: CartItem, sellerId): boolean {
     let alreadyAdded = this.checkIfAlreadyAdded(product, this.products);
-    if (this.sellerId === null || this.products.length === 0) {
-      this.sellerId = sellerId;
-    }
 
     if (alreadyAdded === 0 && this.sellerId == sellerId) {
       this.products = [...this.products, product];
@@ -28,6 +28,16 @@ export class CartService {
       return true;
     }
     return false;
+  }
+  addToCartP(pola: PolaItem): boolean {
+
+
+ 
+      this.polas = [...this.polas, pola];
+      this.cartp.next(this.polas);
+      return true;
+    
+
   }
   removeFromCart(product: CartItem) {
     this.products = this.products.filter((prod) => prod !== product);

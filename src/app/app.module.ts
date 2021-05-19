@@ -48,6 +48,8 @@ import { BajoComponent } from './pola-amargor/bajo/bajo.component';
 import { BajoMedioComponent } from './pola-amargor/bajo-medio/bajo-medio.component';
 import { MedioComponent } from './pola-amargor/medio/medio.component';
 import { AltoComponent } from './pola-amargor/alto/alto.component';
+import { PolasComponent } from './polas/polas.component';
+import { ShoppingCarComponent } from './shopping-car/shopping-car.component';
 
 @NgModule({
   declarations: [
@@ -89,6 +91,8 @@ import { AltoComponent } from './pola-amargor/alto/alto.component';
     BajoMedioComponent,
     MedioComponent,
     AltoComponent,
+    PolasComponent,
+    ShoppingCarComponent,
   ],
   imports: [
     BrowserModule,

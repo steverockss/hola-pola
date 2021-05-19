@@ -3,9 +3,9 @@ import { CartService } from "app/core/services/cart.service";
 import { OrderService } from "app/core/services/order.service";
 import { CartItem } from "app/core/models/cartItem";
 import { Observable } from "rxjs";
+import { PolaItem } from "app/core/models/polaItem";
 import { Order } from "app/core/models/order.model";
 import swal from "sweetalert2";
-import { async } from "@angular/core/testing";
 @Component({
   selector: "app-shopping-cart",
   templateUrl: "./shopping-cart.component.html",
@@ -15,6 +15,7 @@ import { async } from "@angular/core/testing";
 export class ShoppingCartComponent implements OnInit {
   products$: Observable<CartItem[]>;
   order: Order;
+  polasItems: PolaItem[];
   subTotalPrice = 0;
 
   constructor(

@@ -9,6 +9,7 @@
   font-size: 20px;
   font-weight: bold;
 }
+
 .img-container {
   text-align: center;
 }
@@ -59,7 +60,6 @@ hr.yellow {
 }
 .pola-card {
   border: 0.1px solid #c8c2c2;
-  min-width: 15rem;
   max-width: 15rem;
   border-radius: 15%;
 }
@@ -107,11 +107,11 @@ hr.yellow {
   color: #fff;
   text-align: left;
   position: relative;
-  font-size: 25px;
+  font-size: 20px;
   transform: translatey(-100px);
   -webkit-transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
   transition: all 0.4s cubic-bezier(0.88, -0.99, 0, 1.81);
-  padding: 20px;
+  padding-left: 20px;
 }
 
 .hovereffect-pola:hover .overlay {
@@ -174,4 +174,3 @@ a:active {
   text-align: center;
 
 }
-

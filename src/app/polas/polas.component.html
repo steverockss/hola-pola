@@ -1,0 +1,111 @@
+<div class="wrapper">
+  <div class="landing-section">
+    <div class="section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <ngb-accordion
+                  [destroyOnHide]="false"
+                  [closeOthers]="true"
+                  activeIds="panel1"
+                >
+                  <ngb-panel id="panel1">
+                    <ng-template ngbPanelTitle>
+                      <span>Estilo</span>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                      <a href="tipos/ale">Ale</a>
+                      <hr />
+                      <a href="tipos/ipa">Ipa</a>
+                      <hr />
+                      <a href="tipos/stout">Stout</a>
+                      <hr />
+                      <a href="tipos/lager">Lager</a>
+                    </ng-template>
+                  </ngb-panel>
+                  <ngb-panel id="panel2">
+                    <ng-template ngbPanelTitle>
+                      <span>Amargo </span>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                      <a href="tipos/bajo">Bajo</a>
+                      <hr />
+                      <a href="tipos/bajo-medio">Bajo/Medio</a>
+                      <hr />
+                      <a href="tipos/medio">Medio</a>
+                      <hr />
+                      <a href="tipos/alto">Alto</a>
+                    </ng-template>
+                  </ngb-panel>
+                </ngb-accordion>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8 col-sm-12">
+            <div class="card-columns">
+              <div class="card pola-card mt-3" *ngFor="let pola of polas">
+                <div class="hovereffect-pola">
+                  <div class="card-title"></div>
+                  <img
+                    class="card-img-top"
+                    src="{{ pola.image }}"
+                    alt="{{ pola.name }}"
+                  />
+
+                  <div class="overlay">
+                    <h2>{{ pola.name }}</h2>
+                    <div class="overlay-text">
+                      Estilo:
+                      <span style="color: black">{{ pola.estilo }}</span>
+                      <br />
+                      Nivel de alcohol:
+                      <span style="color: black"> {{ pola.alcohol }} %</span>
+                      <br />
+                      Nivel de amargor IBU:
+                      <span style="color: black"> 32</span>
+                      <br />
+                      Amargor:
+                      <span style="color: black">
+                        {{ pola.nivel_amargor }}</span
+                      >
+                      <br />
+                      Casa Cervecera:
+                      <span style="color: black">{{ pola.name }}</span>
+
+                      <br />
+                      Maridaje:
+                      <span style="color: black">{{ pola.maridaje }} </span>
+                    </div>
+                  </div>
+                  <div class="card-body pola-card-body mt-5">
+                    <div class="row">
+                      <div class="col-md-12 col-sm-12 col-12 text-center">
+                        <b class="pola-name" style="font-size: 14px">{{
+                          pola.name
+                        }}</b>
+                      </div>
+                      <div
+                        class="col-md-12 col-sm-12 col-12 mt-2"
+                        style="text-align: center"
+                      >
+                        <button
+                          type="button"
+                          class="btn"
+                          (click)="addToCart(pola)"
+                        >
+                          <i class="fas fa-shopping-cart"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
