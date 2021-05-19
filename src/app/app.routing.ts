@@ -25,17 +25,21 @@ import { LaRojaComponent } from "./polas/la-roja/la-roja.component";
 import { CheeseComponent } from "./duos/cheese/cheese.component";
 import { ChocolateComponent } from "./duos/chocolate/chocolate.component";
 import { WiccaComponent } from "./casas/wicca/wicca.component";
-import {ApacheComponent} from "./casas/apache/apache.component";
-import {ChelanteComponent} from "./casas/chelante/chelante.component";
-import {SultanaComponent} from "./casas/sultana/sultana.component";
-import {HakunaComponent} from "./casas/hakuna/hakuna.component";
-import {KalimaComponent} from "./casas/kalima/kalima.component";
-import {LaTrochaHouseComponent} from "./casas/la-trocha-house/la-trocha-house.component"
-import {AleComponent} from "./pola-type/ale/ale.component";
-import {IpaComponent} from "./pola-type/ipa/ipa.component";
-import {LagerComponent} from "./pola-type/lager/lager.component";
-import {StoutComponent} from "./pola-type/stout/stout.component";
-import {FacturasComponent} from "./facturas/facturas.component";
+import { ApacheComponent } from "./casas/apache/apache.component";
+import { ChelanteComponent } from "./casas/chelante/chelante.component";
+import { SultanaComponent } from "./casas/sultana/sultana.component";
+import { HakunaComponent } from "./casas/hakuna/hakuna.component";
+import { KalimaComponent } from "./casas/kalima/kalima.component";
+import { LaTrochaHouseComponent } from "./casas/la-trocha-house/la-trocha-house.component";
+import { AleComponent } from "./pola-type/ale/ale.component";
+import { IpaComponent } from "./pola-type/ipa/ipa.component";
+import { LagerComponent } from "./pola-type/lager/lager.component";
+import { StoutComponent } from "./pola-type/stout/stout.component";
+import { FacturasComponent } from "./facturas/facturas.component";
+import { AltoComponent } from "./pola-amargor/alto/alto.component";
+import { BajoComponent } from "./pola-amargor/bajo/bajo.component";
+import { BajoMedioComponent } from "./pola-amargor/bajo-medio/bajo-medio.component";
+import { MedioComponent } from "./pola-amargor/medio/medio.component";
 
 const routes: Routes = [
   {
@@ -65,13 +69,16 @@ const routes: Routes = [
       { path: "casas/la-trocha", component: LaTrochaHouseComponent },
       { path: "duos/chocolate", component: ChocolateComponent },
       { path: "testimonios", component: TestimoniosComponent },
-      {path:"tipos/ale", component: AleComponent},
-      {path:"tipos/ipa", component: IpaComponent},
-      {path:"tipos/lager", component: LagerComponent},
-      {path:"tipos/stout", component: StoutComponent},
+      { path: "tipos/ale", component: AleComponent },
+      { path: "tipos/ipa", component: IpaComponent },
+      { path: "tipos/lager", component: LagerComponent },
+      { path: "tipos/stout", component: StoutComponent },
       { path: "facturas", component: FacturasComponent },
+      { path: "tipos/bajo", component: BajoComponent },
+      { path: "tipos/medio", component: MedioComponent },
+      { path: "tipos/bajo-medio", component: BajoMedioComponent },
+      { path: "tipos/alto", component: AltoComponent },
       { path: "shopping-cart", component: ShoppingCartComponent },
-
 
       { path: "organizations", component: OrganizationComponent },
 

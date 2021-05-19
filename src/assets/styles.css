@@ -167,3 +167,11 @@ a:active {
   background-color: transparent;
   text-decoration: underline;
 }
+.banner-text{
+  font-family: "Bobby";
+  color: white;
+  font-size: 40px;
+  text-align: center;
+
+}
+

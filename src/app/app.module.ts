@@ -44,6 +44,10 @@ import { IpaComponent } from './pola-type/ipa/ipa.component';
 import { AleComponent } from './pola-type/ale/ale.component';
 import { StoutComponent } from './pola-type/stout/stout.component';
 import { LagerComponent } from './pola-type/lager/lager.component';
+import { BajoComponent } from './pola-amargor/bajo/bajo.component';
+import { BajoMedioComponent } from './pola-amargor/bajo-medio/bajo-medio.component';
+import { MedioComponent } from './pola-amargor/medio/medio.component';
+import { AltoComponent } from './pola-amargor/alto/alto.component';
 
 @NgModule({
   declarations: [
@@ -81,6 +85,10 @@ import { LagerComponent } from './pola-type/lager/lager.component';
     AleComponent,
     StoutComponent,
     LagerComponent,
+    BajoComponent,
+    BajoMedioComponent,
+    MedioComponent,
+    AltoComponent,
   ],
   imports: [
     BrowserModule,
