@@ -16,7 +16,6 @@ import { AboutComponent } from "./menu/about/about.component";
 import { SignUpComponent } from "./auth/sign-up/sign-up.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { HomeComponent } from "./home/home.component";
-import { ChangePasswordComponent } from "./auth/change-password/change-password.component";
 import { RecipeComponent } from "./recipe/recipe.component";
 import { ChuletaComponent } from "./recipes/chuleta/chuleta.component";
 import { AlitasComponent } from "./recipes/alitas/alitas.component";
@@ -55,7 +54,6 @@ import { CheckoutComponent } from "./checkout/checkout.component";
     SignUpComponent,
     PageNotFoundComponent,
     HomeComponent,
-    ChangePasswordComponent,
     RecipeComponent,
     ChuletaComponent,
     AlitasComponent,

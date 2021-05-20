@@ -8,7 +8,6 @@ import { LoginComponent } from "./auth/login/login.component";
 import { AboutComponent } from "./menu/about/about.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { SignUpComponent } from "./auth/sign-up/sign-up.component";
-import { ChangePasswordComponent } from "./auth/change-password/change-password.component";
 import { RecipeComponent } from "./recipe/recipe.component";
 import { LayoutComponent } from "app/shared/components/layout/layout.component";
 import { ChuletaComponent } from "./recipes/chuleta/chuleta.component";
@@ -79,11 +78,6 @@ const routes: Routes = [
       {path:"shopping-car",component: ShoppingCarComponent},
       {path: "checkout", component: CheckoutComponent},
       { path: "sign-up", component: SignUpComponent },
-      {
-        path: "change-password",
-        component: ChangePasswordComponent,
-        canActivate: [],
-      },
       {
         path: "products/:id",
         loadChildren: () =>

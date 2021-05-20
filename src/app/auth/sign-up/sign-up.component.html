@@ -8,8 +8,6 @@
 
       <hr />
       <form
-        (ngSubmit)="onSubmitEnterprise()"
-        [formGroup]="organizationRegistrationForm"
         class="text-white"
       >
         <h5 style="text-align: left; color: white">Personal</h5>
@@ -78,7 +76,7 @@
         </div>
 
         <div class="form-group text-center mt-5">
-          <button type="submit" class="btn btn-success btn-round">
+          <button  class="btn btn-success btn-round" (click)="onSubmit()">
             Crear cuenta
           </button>
           <div class="form-group text-center mt-4">
