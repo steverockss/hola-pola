@@ -1,402 +1,61 @@
 <div class="wrapper">
-  <div
-    class="page-header page-header-xs"
-    style="background-image: url('./assets/img/sibate19.jpg')"
-  >
-    <div class="filter"></div>
-  </div>
+  <div class="landing-section"></div>
 </div>
 <div class="container login-container">
   <div class="row">
-    <div class="col-md-6 col-sm-8 login-form-1 mt-5">
-      <h3>Registrate como cliente</h3>
-      <hr />
-      <img
+    <div class="col-md-8 login-form-2" style="margin: 0 auto">
+      <h3 style="text-align: left; color: white">Crea tu cuenta</h3>
 
-        src="../../../assets/img/signUp.svg"
-        class="rounded mx-auto d-block"
-        width="100"
-      />
-      <form (ngSubmit)="onSubmitClient()" [formGroup]="clientRegistrationForm">
-        <div class="form-group">
-          <label>Nombre</label>
-          <input
-            type="text"
-            formControlName="firstName"
-            class="form-control"
-            [ngClass]="{
-              'is-invalid': f.firstName.dirty && f.firstName.errors
-            }"
-            placeholder="Nombre *"
-          />
-          <div
-            *ngIf="f.firstName.dirty && f.firstName.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f.firstName.errors.required">
-              El nombre es requerido
-            </div>
-            <div *ngIf="f.firstName.errors.pattern">
-              El nombre no puede contener números ni caracteres especiales
-            </div>
-            <div *ngIf="f.firstName.errors.minlength">
-              El nombre es muy corto
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label>Nombre de usuario</label>
-          <input
-            type="text"
-            formControlName="username"
-            class="form-control"
-            [ngClass]="{
-              'is-invalid': f.username.dirty && f.username.errors
-            }"
-            placeholder="Nombre de usuario *"
-          />
-          <div
-            *ngIf="f.username.dirty && f.username.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f.username.errors.required">
-              El nombre de usuario es requerido
-            </div>
-            <div *ngIf="f.username.errors.minlength">
-              El nombre de usuario es muy corto
-            </div>
-            <div *ngIf="f.username.errors.pattern">
-              El nombre no puede contener caracteres especiales ni espacios
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Tipo de documento</label>
-          <select
-            class="form-control"
-            formControlName="documentType"
-            [ngClass]="{
-              'is-invalid': f.documentType.dirty && f.documentType.errors
-            }"
-          >
-            <option value="" selected>Escoge un tipo de documento</option>
-            <option value="1">Cédula de ciudadanía</option>
-            <option value="2">NIT</option>
-          </select>
-          <div
-            *ngIf="f.documentType.dirty && f.documentType.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f.documentType.errors.required">
-              El número tipo de documento es requerido
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Número de identificación</label>
-          <input
-            type="text"
-            formControlName="documentNumber"
-            class="form-control"
-            [ngClass]="{
-              'is-invalid': f.documentNumber.dirty && f.documentNumber.errors
-            }"
-            maxlength="10"
-            placeholder="Número de identificación *"
-          />
-          <div
-            *ngIf="f.documentNumber.dirty && f.documentNumber.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f.documentNumber.errors.required">
-              El número de identificación es requerido
-            </div>
-            <div *ngIf="f.documentNumber.errors.minlength">
-              El número debe tener mínimo 6 dígitos
-            </div>
-            <div *ngIf="f.documentNumber.errors.pattern">
-              El número debe ser numérico
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Correo electronico</label>
-          <input
-            type="text"
-            formControlName="email"
-            class="form-control"
-            [ngClass]="{
-              'is-invalid': f.email.dirty && f.email.errors
-            }"
-            placeholder="Correo electrónico *"
-          />
-          <div *ngIf="f.email.dirty && f.email.errors" class="invalid-feedback">
-            <div *ngIf="f.email.errors.required">El email es requerido</div>
-            <div *ngIf="f.email.errors.email">El email no es válido</div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Número de teléfono celular</label>
-          <input
-            type="text"
-            formControlName="mobilePhone"
-            class="form-control"
-            [ngClass]="{
-              'is-invalid': f.mobilePhone.dirty && f.mobilePhone.errors
-            }"
-            placeholder="Número de teléfono celular *"
-            maxlength="10"
-          />
-          <div
-            *ngIf="f.mobilePhone.dirty && f.mobilePhone.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f.mobilePhone.errors.required">
-              El número de celular es requerido
-            </div>
-            <div *ngIf="f.mobilePhone.errors.pattern">
-              El número de celular solo puede contener números
-            </div>
-            <div *ngIf="f.mobilePhone.errors.minlength">
-              El número de celular debe tener 10 dígitos
-            </div>
-            <div *ngIf="f.mobilePhone.errors.maxlength">
-              El número de celular debe tener 10 dígitos
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Departamento</label>
-          <select
-            (change)="onChange($event.target.value)"
-            [ngClass]="{
-              'is-invalid': f.state.dirty && f.state.errors
-            }"
-            class="form-control"
-            formControlName="state"
-          >
-            <option value="" selected>Escoge tu departamento de residencia</option>
-            <option *ngFor="let state of states" value="{{ state.stateId }}">
-              {{ state.name }}
-            </option>
-          </select>
-          <div *ngIf="f.state.dirty && f.state.errors" class="invalid-feedback">
-            <div *ngIf="f.state.errors.required">
-              El departamento de residencia es requerido
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Municipio</label>
-          <select
-            [ngClass]="{
-              'is-invalid': f.city.dirty && f.city.errors
-            }"
-            class="form-control"
-            formControlName="city"
-          >
-            <option value="" selected>Escoge tu municipio de residencia</option>
-            <option *ngFor="let city of cities" value="{{ city.cityId }}">
-              {{ city.name }}
-            </option>
-          </select>
-          <div *ngIf="f.city.dirty && f.city.errors" class="invalid-feedback">
-            <div *ngIf="f.city.errors.required">
-              El municipio de residencia es requerido
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label for="">Dirección</label>
-          <input
-            type="text"
-            formControlName="address"
-            class="form-control"
-            [ngClass]="{
-              'is-invalid': f.address.dirty && f.address.errors
-            }"
-            placeholder="Dirección"
-          />
-          <div
-            *ngIf="f.address.dirty && f.address.errors"
-            class="invalid-feedback"
-          ></div>
-        </div>
-        <div class="form-group">
-          <label for="">Contraseña</label>
-          <input
-            type="password"
-            formControlName="password"
-            class="form-control"
-            [ngClass]="{
-              'is-invalid': f.password.dirty && f.password.errors
-            }"
-            placeholder="Contraseña *"
-          />
-          <div
-            *ngIf="f.password.dirty && f.password.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f.password.errors.required">
-              Debes ingresar tu contraseña
-            </div>
-            <div *ngIf="f.password.errors.minlength">
-              La contraseña es muy corta
-            </div>
-          </div>
-        </div>
-        <div class="form-group text-center mt-5">
-          <button
-            type="submit"
-            class="btn btn-danger btn-round"
-            [disabled]="!clientRegistrationForm.valid"
-          >
-            Crear cuenta
-          </button>
-          <div class="form-group text-center mt-4">
-            <a class="ForgetPwd" [routerLink]="['/login']"
-              >¿Ya tienes una cuenta?, inicia sesión</a
-            >
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="col-md-6 col-sm-8 login-form-2 mt-5">
-      <h3>Registrate como empresa</h3>
       <hr />
-      <img
-        src="../../../assets/img/signUpEnterprise.svg"
-        class="rounded mx-auto d-block"
-        width="100"
-      />
       <form
         (ngSubmit)="onSubmitEnterprise()"
         [formGroup]="organizationRegistrationForm"
         class="text-white"
       >
+        <h5 style="text-align: left; color: white">Personal</h5>
+        <hr />
         <div class="form-group">
           <label>Nombre</label>
           <input
             type="text"
             formControlName="firstName"
             class="form-control"
-            [ngClass]="{
-              'is-invalid': f1.firstName.dirty && f1.firstName.errors
-            }"
             placeholder="Nombre *"
           />
-          <div
-            *ngIf="f1.firstName.dirty && f1.firstName.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f1.firstName.errors.required">
-              El nombre es requerido
-            </div>
-            <div *ngIf="f1.firstName.errors.pattern">
-              El nombre no puede contener números ni caracteres especiales
-            </div>
-            <div *ngIf="f1.firstName.errors.minlength">
-              El nombre es muy corto
-            </div>
-          </div>
         </div>
 
         <div class="form-group">
-          <label>Nombre de usuario</label>
+          <label>Apellidos</label>
           <input
             type="text"
             formControlName="username"
             class="form-control"
-            [ngClass]="{
-              'is-invalid': f1.username.dirty && f1.username.errors
-            }"
-            placeholder="Nombre de usuario *"
+            placeholder="Apellidos *"
             maxlength="20"
           />
-          <div
-            *ngIf="f1.username.dirty && f1.username.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f1.username.errors.required">
-              El nombre de usuario es requerido
-            </div>
-            <div *ngIf="f1.username.errors.minlength">
-              El nombre de usuario es muy corto
-            </div>
-            <div *ngIf="f1.username.errors.pattern">
-              El nombre no puede contener caracteres especiales ni espacios
-            </div>
-          </div>
         </div>
-        <div class="form-group">
-          <label>Tipo de documento</label>
-          <select
-            class="form-control"
-            formControlName="documentType"
-            [ngClass]="{
-              'is-invalid': f1.documentType.dirty && f1.documentType.errors
-            }"
-          >
-            <option value="" selected>Escoge un tipo de documento</option>
-            <option value="1">Cédula de ciudadanía</option>
-            <option value="2">NIT</option>
-          </select>
-          <div
-            *ngIf="f1.documentType.dirty && f1.documentType.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f1.documentType.errors.required">
-              El número tipo de documento es requerido
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Número de identificación</label>
-          <input
-            type="text"
-            formControlName="documentNumber"
-            class="form-control"
-            maxlength="11"
-            [ngClass]="{
-              'is-invalid': f1.documentNumber.dirty && f1.documentNumber.errors
-            }"
-            placeholder="Número de identificación *"
-          />
-          <div
-            *ngIf="f1.documentNumber.dirty && f1.documentNumber.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f1.documentNumber.errors.required">
-              El número de documento es requerido
-            </div>
-            <div *ngIf="f1.documentNumber.errors.minlength">
-              El número de documento debe tener mínimo 6 dígitos
-            </div>
-            <div *ngIf="f1.documentNumber.errors.pattern">
-              El número de documento debe ser numérico
-            </div>
-          </div>
-        </div>
+
         <div class="form-group">
           <label>Correo electronico</label>
           <input
             type="text"
             formControlName="email"
             class="form-control"
-            [ngClass]="{
-              'is-invalid': f1.email.dirty && f1.email.errors
-            }"
             placeholder="Correo electrónico *"
           />
-          <div
-            *ngIf="f1.email.dirty && f1.email.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f1.email.errors.required">El email es requerido</div>
-            <div *ngIf="f1.email.errors.email">El email no es válido</div>
-          </div>
         </div>
+
+        <div class="form-group">
+          <label for="">Contraseña</label>
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Contraseña *"
+          />
+        </div>
+        <h5 style="text-align: left; color: white">Contacto</h5>
+        <hr />
         <div class="form-group">
           <label>Número de teléfono celular</label>
           <input
@@ -404,132 +63,22 @@
             maxlength="10"
             formControlName="mobilePhone"
             class="form-control"
-            [ngClass]="{
-              'is-invalid': f1.mobilePhone.dirty && f1.mobilePhone.errors
-            }"
             placeholder="Número de celular *"
           />
-          <div
-            *ngIf="f1.mobilePhone.dirty && f1.mobilePhone.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f1.mobilePhone.errors.required">
-              El número de celular es requerido
-            </div>
-            <div *ngIf="f1.mobilePhone.errors.pattern">
-              El número de celular solo puede contener números
-            </div>
-            <div *ngIf="f1.mobilePhone.errors.minlength">
-              El número de celular debe tener 10 dígitos
-            </div>
-            <div *ngIf="f1.mobilePhone.errors.maxlength">
-              El número de celular debe tener 10 dígitos
-            </div>
-          </div>
         </div>
         <div class="form-group">
-          <label>Tipo de organización</label>
-          <select
-            [ngClass]="{
-              'is-invalid':
-                f1.organizationType.dirty && f1.organizationType.errors
-            }"
-            class="form-control"
-            formControlName="organizationType"
-          >
-            <option value="" selected>Escoge un tipo de organización</option>
-            <option
-              *ngFor="let type of organizationTypes"
-              value="{{ type.typeId }}"
-            >
-              {{ type.name }}
-            </option>
-          </select>
-          <div
-            *ngIf="f1.organizationType.dirty && f1.organizationType.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f1.organizationType.errors.required">
-              El tipo de organización es requerido
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label>Categoría de organización</label>
-          <select
-            [ngClass]="{
-              'is-invalid':
-                f1.organizationCategory.dirty && f1.organizationCategory.errors
-            }"
-            class="form-control"
-            formControlName="organizationCategory"
-          >
-            <option value="" selected>
-              Escoge la categoría de la organización
-            </option>
-            <option
-              *ngFor="let category of organizationCategories"
-              value="{{ category.categoryId }}"
-            >
-              {{ category.name }}
-            </option>
-          </select>
-          <div
-            *ngIf="
-              f1.organizationCategory.dirty && f1.organizationCategory.errors
-            "
-            class="invalid-feedback"
-          >
-            <div *ngIf="f1.organizationCategory.errors.required">
-              La categoría de la organización es requerida
-            </div>
-          </div>
-        </div>
-        <label >Logo de la organización</label>
-        <div class="custom-file form-group mx-auto d-block">
+          <label>Dirección</label>
           <input
-            type="file"
-            class="custom-file-input"
-            id="customFileLang"
-            lang="es"
-            (change)="fileChangeEvent($event)"
-          />
-          <label class="custom-file-label" for="customFileLang"
-            >{{fileName}}</label
-          >
-        </div>
-        <div class="form-group mt-2 text-center" *ngIf="isImageSaved">
-          <img [src]="cardImageBase64" width="200" height="200" />
-        </div>
-        <div class="form-group">
-          <label for="">Contraseña</label>
-          <input
-            type="password"
-            formControlName="password"
+            type="text"
+            maxlength="10"
+            formControlName="address"
             class="form-control"
-            [ngClass]="{
-              'is-invalid': f1.password.dirty && f1.password.errors
-            }"
-            placeholder="Contraseña *"
+            placeholder="Dirección *"
           />
-          <div
-            *ngIf="f1.password.dirty && f1.password.errors"
-            class="invalid-feedback"
-          >
-            <div *ngIf="f1.password.errors.required">
-              Debes ingresar tu contraseña
-            </div>
-            <div *ngIf="f1.password.errors.minlength">
-              La contraseña es muy corta
-            </div>
-          </div>
         </div>
+
         <div class="form-group text-center mt-5">
-          <button
-            type="submit"
-            class="btn btn-danger btn-round"
-            [disabled]="!organizationRegistrationForm.valid"
-          >
+          <button type="submit" class="btn btn-success btn-round">
             Crear cuenta
           </button>
           <div class="form-group text-center mt-4">
