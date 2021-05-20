@@ -6,13 +6,9 @@ import { Routes, RouterModule } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { LoginComponent } from "./auth/login/login.component";
 import { AboutComponent } from "./menu/about/about.component";
-import { ShoppingCartComponent } from "./menu/shopping-cart/shopping-cart.component";
-import { SellerComponent } from "./menu/seller/seller.component";
-import { OrganizationComponent } from "./menu/organization/organization.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { SignUpComponent } from "./auth/sign-up/sign-up.component";
 import { ChangePasswordComponent } from "./auth/change-password/change-password.component";
-import { OrdersComponent } from "./orders/orders.component";
 import { RecipeComponent } from "./recipe/recipe.component";
 import { LayoutComponent } from "app/shared/components/layout/layout.component";
 import { ChuletaComponent } from "./recipes/chuleta/chuleta.component";
@@ -51,10 +47,8 @@ const routes: Routes = [
     children: [
       { path: "", redirectTo: "home", pathMatch: "full" },
       { path: "home", component: HomeComponent },
-      { path: "orders", component: OrdersComponent },
       { path: "login", component: LoginComponent },
       { path: "aboutus", component: AboutComponent },
-      { path: "sellers", component: SellerComponent },
       { path: "recetas", component: RecipeComponent },
       { path: "recetas/chuleta", component: ChuletaComponent },
       { path: "recetas/alitas", component: AlitasComponent },
@@ -81,13 +75,9 @@ const routes: Routes = [
       { path: "tipos/medio", component: MedioComponent },
       { path: "tipos/bajo-medio", component: BajoMedioComponent },
       { path: "tipos/alto", component: AltoComponent },
-      { path: "shopping-cart", component: ShoppingCartComponent },
       {path:"polas", component: PolasComponent},
       {path:"shopping-car",component: ShoppingCarComponent},
       {path: "checkout", component: CheckoutComponent},
-
-      { path: "organizations", component: OrganizationComponent },
-
       { path: "sign-up", component: SignUpComponent },
       {
         path: "change-password",
@@ -100,11 +90,6 @@ const routes: Routes = [
           import("./product/product.module").then((m) => m.ProductModule),
       },
     ],
-  },
-  {
-    path: "enterprise",
-    loadChildren: () =>
-      import("./enterprise/enterprise.module").then((m) => m.EnterpriseModule),
   },
   {
     path: "**",
