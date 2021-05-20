@@ -4,7 +4,6 @@ import { Product } from "app/core/models/product.model";
 import { ProductCategory } from "app/core/models/productCategory.model";
 import { Observable } from "rxjs";
 import { HttpHeaders } from "@angular/common/http";
-import { AppSettings } from "app/app.config";
 @Injectable({
   providedIn: "root",
 })
@@ -15,8 +14,8 @@ export class ProductService {
       Authorization: `Bearer ${sessionStorage.getItem("token")}`,
     }),
   };
-  private baseUrl = `${AppSettings.API_ENDPOINT}catalog/product/`;
-  private productUrl = `${AppSettings.API_ENDPOINT}product/`;
+  private baseUrl = `catalog/product/`;
+  private productUrl = `product/`;
   constructor(private httpClient: HttpClient) {}
 
   getAllProductList(sellerId): Observable<Product[]> {
