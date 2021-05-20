@@ -1,8 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ProductService } from "../../../core/services/product.service";
-import { CartService } from "app/core/services/cart.service";
 import { Product } from "app/core/models/product.model";
-import { CartItem } from "app/core/models/cartItem";
 import { ProductCategory } from "app/core/models/productCategory.model";
 import { Router, Params, ActivatedRoute } from "@angular/router";
 import swal from "sweetalert2";
@@ -24,7 +22,6 @@ export class ProductListComponent implements OnInit {
     private productService: ProductService,
     private router: Router,
     private route: ActivatedRoute,
-    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -86,38 +83,7 @@ export class ProductListComponent implements OnInit {
       );
   }
 
-  addToCart(product: Product) {
-    let carItem = new CartItem(product, 1, product.unitaryPrice);
-    let added = this.cartService.addToCart(carItem, this.sellerId);
-    if(added){
-      swal.fire({
-        title: `Producto agregado al carrito de compras.`,
-        width: 600,
-        padding: `3em`,
-        imageUrl: `https://icons-for-free.com/iconfiles/png/512/cart+checked+ecommerce+online+shopping+shopping+cart+icon-1320165952137863404.png`,
-        imageWidth: 200,
-        imageHeight: 200,
-        timer: 5000,
-        backdrop: `
-          rgba(0,0,123,0.4)
-          no-repeat
-          `,
-      });
-    }else{
-      swal.fire({
-        title: `Solo pueden agregarse al carrito los productos de un mismo vendedor.`,
-        width: 600,
-        padding: `3em`,
-        imageUrl: `https://www.flaticon.com/svg/vstatic/svg/3084/3084419.svg?token=exp=1611690839~hmac=3e208860ed86055bea1da18f43151a74`,
-        imageWidth: 200,
-        imageHeight: 200,
-        timer: 5000,
-        backdrop: `
-          rgba(0,0,123,0.4)
-          no-repeat
-          `,
-      });
-    }
+ 
 
-  }
+  
 }

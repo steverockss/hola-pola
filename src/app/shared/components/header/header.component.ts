@@ -1,7 +1,6 @@
 import { Component, OnInit, ElementRef } from "@angular/core";
 import { Location } from "@angular/common";
 import { map } from "rxjs/operators";
-import { CartService } from "../../../core/services/cart.service";
 import { Observable } from "rxjs";
 import { Router } from "@angular/router";
 import Swal from "sweetalert2";
@@ -19,12 +18,9 @@ export class HeaderComponent implements OnInit {
   constructor(
     public location: Location,
     private element: ElementRef,
-    private cartService: CartService,
     private router: Router
   ) {
-    this.total$ = this.cartService.cart$.pipe(
-      map((products) => products.length)
-    );
+
 
 
     this.sidebarVisible = false;

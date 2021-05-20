@@ -1,79 +1,43 @@
 <div class="wrapper">
-  <div
-    class="page-header page-header-xs"
-    style="background-image: url('./assets/img/sibate14.jpg')"
-  >
-    <div class="filter"></div>
-  </div>
-  <div class="container login-container">
-    <div class="row">
-       
-      <div class="col-md-6 login-form-2 mx-auto d-block ">
-        <h3>Inicia sesión</h3>
-        <hr />
-        <img
-          src="../../../assets/img/login.svg"
-          class="rounded mx-auto d-block"
-          width="100"
-          height="100"
-        />
-        <form (ngSubmit)="onSubmitClient()" [formGroup]="clientLoginForm" class="text-white">
-          <div class="form-group">
-            <label>Correo electrónico</label>
-            <input
-              type="text"
-              formControlName="email"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid': f.email.dirty && f.email.errors
-              }"
-              placeholder="Correo electrónico *"
-            />
-            <div
-              *ngIf="f.email.dirty && f.email.errors"
-              class="invalid-feedback"
-            >
-              <div *ngIf="f.email.errors.required">El email es requerido</div>
-              <div *ngIf="f.email.errors.email">El email no es válido</div>
+  <div class="landing-section">
+    <div class="container login-container">
+      <div class="row">
+        <div class="col-md-6 login-form-2 mx-auto d-block">
+          <img
+            src="https://i.postimg.cc/Dzj8Vhm8/logo.png"
+            class="rounded mx-auto d-block"
+            width="300"
+          />
+          <form
+            (ngSubmit)="onSubmitClient()"
+            [formGroup]="clientLoginForm"
+            class="text-white"
+          >
+            <div class="form-group">
+              <label>Correo electrónico</label>
+              <input
+                type="text"
+                formControlName="email"
+                class="form-control"
+                placeholder="Correo electrónico *"
+              />
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="">Contraseña</label>
-            <input
-              type="password"
-              formControlName="password"
-              class="form-control"
-              [ngClass]="{
-                'is-invalid': f.password.dirty && f.password.errors
-              }"
-              placeholder="Contraseña *"
-            />
-            <div
-              *ngIf="f.password.dirty && f.password.errors"
-              class="invalid-feedback"
-            >
-              <div *ngIf="f.password.errors.required">
-                Debes ingresar tu contraseña
-              </div>
-              <div *ngIf="f.password.errors.minlength">
-                La contraseña es muy corta
-              </div>
+            <div class="form-group">
+              <label>Contraseña</label>
+              <input
+                type="password"
+                formControlName="password"
+                class="form-control"
+                placeholder="Contraseña *"
+              />
             </div>
-          </div>
-          <div class="form-group text-center mt-5">
-            <button
-              type="submit"
-              class="btn btn-danger btn-round"
-              [disabled]="!clientLoginForm.valid"
-            >
-              Iniciar sesión
-            </button>
-        
-          </div>
-        </form>
+            <div class="form-group text-center mt-5">
+              <a  class="btn btn-x" href="/checkout">Iniciar sesión</a>
+            </div>
+          </form>
+        </div>
       </div>
-
     </div>
   </div>
 </div>

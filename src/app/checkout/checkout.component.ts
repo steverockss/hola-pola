@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Factura } from "app/core/models/factura";
 import swal from "sweetalert2";
 import { PolaItem } from "app/core/models/polaItem";
+
 @Component({
   
   selector: "app-checkout",
@@ -13,8 +14,12 @@ export class CheckoutComponent implements OnInit {
   factura: Factura;
   
   constructor() {
+    let cart = sessionStorage.getItem("cart");
+    if (cart !== "undefined") {
     this.polasItems = JSON.parse(sessionStorage.getItem("cart"));
-    console.log(this.polasItems)
+    
+
+    }
   }
 
   ngOnInit(): void {

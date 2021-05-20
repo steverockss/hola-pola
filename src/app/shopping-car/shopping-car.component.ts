@@ -12,10 +12,14 @@ export class ShoppingCarComponent implements OnInit {
   totalPrice = 0;
   envioPrice = 7000;
   constructor() {
+    let cart = sessionStorage.getItem("cart");
+    if (cart !== "undefined") {
     this.polasItems = JSON.parse(sessionStorage.getItem("cart"));
-    this.polasItems.forEach((element) => {
-      this.subTotalPrice += element.price;
-    });
+    
+      this.polasItems.forEach((element) => {
+        this.subTotalPrice += element.price;
+      });
+    }
   }
 
   ngOnInit(): void {}
@@ -51,9 +55,9 @@ export class ShoppingCarComponent implements OnInit {
       width: 600,
       padding: "3em",
       html:
-      '' +
-      '<a href="//sweetalert2.github.io">Iniciar sesión</a> <br> <br> ' +
-      '<a href="/shopping-car">Crear una cuenta</a> ',
+        "" +
+        '<a href="/login">Iniciar sesión</a> <br> <br> ' +
+        '<a href="/shopping-car">Crear una cuenta</a> ',
       imageUrl: `https://i.postimg.cc/Dzj8Vhm8/logo.png`,
       imageWidth: 400,
       showConfirmButton: false,

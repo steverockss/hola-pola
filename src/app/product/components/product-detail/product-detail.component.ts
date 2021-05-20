@@ -1,9 +1,7 @@
 import { Component, OnInit } from "@angular/core";
-import { CartItem } from "app/core/models/cartItem";
 import { Product } from "app/core/models/product.model";
 import { Rating } from "app/core/models/rating.model";
 import { ActivatedRoute, Params } from "@angular/router";
-import { CartService } from "app/core/services/cart.service";
 import { ProductService } from "app/core/services/product.service";
 import {AppSettings} from  "app/app.config";
 import swal from "sweetalert2";
@@ -19,10 +17,8 @@ export class ProductDetailComponent implements OnInit {
   description: string;
   productId = 0;
   sellerId = "";
-  cartItem: CartItem;
   currentRole;
   constructor(
-    private cartService: CartService,
     private route: ActivatedRoute,
     private router: Router,
     private productService: ProductService
@@ -47,21 +43,7 @@ export class ProductDetailComponent implements OnInit {
       });
   }
   addToCart() {
-    this.cartItem = new CartItem(this.product, 1, this.product.unitaryPrice);
-    this.cartService.addToCart(this.cartItem, this.sellerId);
-    swal.fire({
-      title: `Producto agregado al carrito de compras.`,
-      width: 600,
-      padding: `3em`,
-      imageUrl: `https://icons-for-free.com/iconfiles/png/512/cart+checked+ecommerce+online+shopping+shopping+cart+icon-1320165952137863404.png`,
-      imageWidth: 200,
-      imageHeight: 200,
-      timer: 5000,
-      backdrop: `
-        rgba(0,0,123,0.4)
-        no-repeat
-        `,
-    });
+
   }
   onSubmit() {
     this.productService.reviewProduct(this.rating, this.productId).subscribe(

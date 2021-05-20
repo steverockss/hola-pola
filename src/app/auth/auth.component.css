@@ -1,0 +1,15 @@
+.btn-x {
+  background-color: transparent;
+  border: none;
+  color: white;
+}
+
+input {
+  background-color: #f2cf20;
+  color: black;
+}
+
+::placeholder {
+  color: black;
+  opacity: 1;
+}
