@@ -50,6 +50,7 @@ import { MedioComponent } from './pola-amargor/medio/medio.component';
 import { AltoComponent } from './pola-amargor/alto/alto.component';
 import { PolasComponent } from './polas/polas.component';
 import { ShoppingCarComponent } from './shopping-car/shopping-car.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -93,6 +94,7 @@ import { ShoppingCarComponent } from './shopping-car/shopping-car.component';
     AltoComponent,
     PolasComponent,
     ShoppingCarComponent,
+    CheckoutComponent,
   ],
   imports: [
     BrowserModule,

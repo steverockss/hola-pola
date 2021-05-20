@@ -1,0 +1,102 @@
+<div class="wrapper">
+  <div class="landing-section"></div>
+
+  <div class="section">
+    <div class="container">
+      <div class="owner">
+        <div class="row">
+          <div class="col-md-9 section-title">Factura {{ factura.codigo }}</div>
+          <div class="col-md-3 section-title">
+            <img src="./assets/img/logo.png" width="50%" />
+          </div>
+        </div>
+        <section>
+          <div class="spacer">
+            <div class="container">
+              <div class="row mt-5">
+                <div class="col-lg-12">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th class="b-0">Nombre</th>
+                        <th class="b-0">Cédula</th>
+                        <th class="b-0">Télefono</th>
+                        <th class="b-0">Dirección</th>
+                        <th class="b-0">Ciudad</th>
+                      </tr>
+                    </thead>
+
+                    <tbody *ngIf="factura">
+                      <tr>
+                        <td class="order-info">
+                          {{ factura.nombre }}
+                        </td>
+                        <td class="order-info">
+                          {{ factura.cedula }}
+                        </td>
+                        <td class="order-info">
+                          {{ factura.telefono }}
+                        </td>
+                        <td class="order-info">
+                          {{ factura.direccion }}
+                        </td>
+                        <td class="order-info">
+                          {{ factura.city }}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <table class="table mt-5">
+                <thead class="thead-dark">
+                  <tr>
+                    <th class="b-0">Producto</th>
+                    <th class="b-0">Cantidad</th>
+                    <th class="b-0">Precio</th>
+                  </tr>
+                </thead>
+
+                <tbody *ngFor="let polas of factura.polas">
+                  <tr>
+                    <td class="order-info">
+                      {{ polas.pola.name }}
+                    </td>
+                    <td class="order-info">
+                      {{ polas.quantity }}
+                    </td>
+                    <td class="order-info">
+                      {{ polas.price }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <h5><b>Medios de pago</b></h5>
+
+              <div class="row">
+                <div class="col-4 mr-3">
+                  <img src="./assets/img/pago/efecty.jpg" width="80%" />
+                </div>
+                <div class="col-4 mr-3">
+                  <img src="./assets/img/pago/mastercard.png" width="60%" />
+                </div>
+                <div class="col-3 mt-5">
+                  <img src="./assets/img/pago/visa.png" width="60%" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-4 mr-3">
+                  <img src="./assets/img/pago/baloto.png" width="60%" />
+                </div>
+                <div class="col-4 mr-3 mt-5">
+                  <img src="./assets/img/pago/pse.png" width="60%" />
+                </div>
+              </div>
+              <a class="btn btn-success mt-5" (click)="buy()">Realizar pedido</a>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,6 +7,7 @@ export class Pola {
   casa: string;
   maridaje: string;
   image: string;
+  price:number;
   constructor(
     name: string,
     estilo: string,
@@ -15,7 +16,8 @@ export class Pola {
     amargor: string,
     casa: string,
     maridaje: string,
-    image: string
+    image: string,
+    price: number
   ) {
     this.name = name;
     this.estilo = estilo;
@@ -25,5 +27,6 @@ export class Pola {
     this.casa = casa;
     this.maridaje = maridaje;
     this.image = image;
+    this.price = price;
   }
 }

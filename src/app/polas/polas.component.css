@@ -29,3 +29,17 @@
  ::ng-deep .accordion .card .card-body {
    padding: 1rem;
  }
+ .btn-success{
+   background-color: transparent;
+   color: white;
+   border: none;
+ }
+ .text{
+   color: black;
+   font-size: 15px;
+   font-weight: bolder;
+ }
+ .page-header-small{
+  min-height: 50vh !important;
+  max-height: 600px;
+}

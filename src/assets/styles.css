@@ -174,3 +174,10 @@ a:active {
   text-align: center;
 
 }
+
+.section-title {
+  text-align: left;
+  color: #4bbbbc;
+  font-weight: bold;
+  font-size: 25px;
+}
