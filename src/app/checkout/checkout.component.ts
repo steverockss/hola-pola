@@ -23,7 +23,10 @@ export class CheckoutComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
+    var yyyy = today.getFullYear();
     this.factura = new Factura(
       123405,
       "Pepito Martinez",
@@ -31,7 +34,8 @@ export class CheckoutComponent implements OnInit {
       31967820,
       "Cr 89 # 56 A , Conjunto San Vicnete",
       "Bogota",
-      this.polasItems
+      this.polasItems,
+      mm + '/' + dd + '/' + yyyy
     );
 
     

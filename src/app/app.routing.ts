@@ -35,9 +35,10 @@ import { AltoComponent } from "./pola-amargor/alto/alto.component";
 import { BajoComponent } from "./pola-amargor/bajo/bajo.component";
 import { BajoMedioComponent } from "./pola-amargor/bajo-medio/bajo-medio.component";
 import { MedioComponent } from "./pola-amargor/medio/medio.component";
-import {PolasComponent} from "./polas/polas.component"
-import{ShoppingCarComponent} from "./shopping-car/shopping-car.component"
-import {CheckoutComponent} from "./checkout/checkout.component"
+import { PolasComponent } from "./polas/polas.component";
+import { ShoppingCarComponent } from "./shopping-car/shopping-car.component";
+import { CheckoutComponent } from "./checkout/checkout.component";
+import { FacturaComponent } from "./factura/factura.component";
 
 const routes: Routes = [
   {
@@ -74,15 +75,11 @@ const routes: Routes = [
       { path: "tipos/medio", component: MedioComponent },
       { path: "tipos/bajo-medio", component: BajoMedioComponent },
       { path: "tipos/alto", component: AltoComponent },
-      {path:"polas", component: PolasComponent},
-      {path:"shopping-car",component: ShoppingCarComponent},
-      {path: "checkout", component: CheckoutComponent},
+      { path: "polas", component: PolasComponent },
+      { path: "shopping-car", component: ShoppingCarComponent },
+      { path: "checkout", component: CheckoutComponent },
       { path: "sign-up", component: SignUpComponent },
-      {
-        path: "products/:id",
-        loadChildren: () =>
-          import("./product/product.module").then((m) => m.ProductModule),
-      },
+      { path: "factura/:id", component: FacturaComponent },
     ],
   },
   {

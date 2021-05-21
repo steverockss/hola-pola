@@ -9,7 +9,6 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppComponent } from "./app.component";
 
 import { SharedModule } from "./shared/shared.module";
-import { ProductModule } from "./product/product.module";
 
 import { LoginComponent } from "./auth/login/login.component";
 import { AboutComponent } from "./menu/about/about.component";
@@ -45,6 +44,7 @@ import { AltoComponent } from "./pola-amargor/alto/alto.component";
 import { PolasComponent } from "./polas/polas.component";
 import { ShoppingCarComponent } from "./shopping-car/shopping-car.component";
 import { CheckoutComponent } from "./checkout/checkout.component";
+import { FacturaComponent } from './factura/factura.component';
 
 @NgModule({
   declarations: [
@@ -83,6 +83,7 @@ import { CheckoutComponent } from "./checkout/checkout.component";
     PolasComponent,
     ShoppingCarComponent,
     CheckoutComponent,
+    FacturaComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,7 +94,6 @@ import { CheckoutComponent } from "./checkout/checkout.component";
     ReactiveFormsModule,
     NgbModule,
     SharedModule,
-    ProductModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -7,6 +7,7 @@ export class Factura {
   direccion: string;
   ciudad: string;
   polas: PolaItem[];
+  fecha: string;
 
   constructor(
     codigo: number,
@@ -15,7 +16,8 @@ export class Factura {
     telefono: number,
     direccion: string,
     ciudad: string,
-    polas: PolaItem[]
+    polas: PolaItem[],
+    fecha: string
   ) {
       this.codigo = codigo,
       this.nombre = nombre,
@@ -23,7 +25,8 @@ export class Factura {
       this.telefono = telefono,
       this.direccion = direccion,
       this.ciudad = ciudad,
-      this.polas = polas
+      this.polas = polas,
+      this.fecha = fecha
 
   }
 }

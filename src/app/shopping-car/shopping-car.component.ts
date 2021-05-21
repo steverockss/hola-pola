@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import swal from "sweetalert2";
 import { PolaItem } from "app/core/models/polaItem";
+import { Factura } from "../core/models/factura";
 @Component({
   selector: "app-shopping-car",
   templateUrl: "./shopping-car.component.html",
@@ -8,6 +9,7 @@ import { PolaItem } from "app/core/models/polaItem";
 })
 export class ShoppingCarComponent implements OnInit {
   polasItems: PolaItem[];
+  facturas: Factura[] = [];
   subTotalPrice = 0;
   totalPrice = 0;
   envioPrice = 7000;
@@ -51,6 +53,29 @@ export class ShoppingCarComponent implements OnInit {
   }
 
   buy() {
+    let fact = sessionStorage.getItem("factura");
+    console.log(fact === null)
+    if ( fact !== null ) {
+      this.facturas = JSON.parse(sessionStorage.getItem("factura"));
+    } else {
+      this.facturas = [];
+    }
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, "0");
+    var mm = String(today.getMonth() + 1).padStart(2, "0");
+    var yyyy = today.getFullYear();
+    let fac = new Factura(
+      Math.floor(100000 + Math.random() * 900000),
+      "Pedro",
+      1233902,
+      31952638,
+      "Carrera 7 Calle 45 # 20 A ",
+      "Bogota",
+      this.polasItems,
+      mm + '/' + dd + '/' + yyyy
+    );
+    this.facturas.push(fac);
+    sessionStorage.setItem("factura", JSON.stringify(this.facturas));
     swal.fire({
       width: 600,
       padding: "3em",
