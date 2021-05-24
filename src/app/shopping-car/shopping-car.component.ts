@@ -54,7 +54,6 @@ export class ShoppingCarComponent implements OnInit {
 
   buy() {
     let fact = sessionStorage.getItem("factura");
-    console.log(fact === null)
     if ( fact !== null ) {
       this.facturas = JSON.parse(sessionStorage.getItem("factura"));
     } else {

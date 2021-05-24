@@ -33,10 +33,6 @@ import { ApacheComponent } from "./casas/apache/apache.component";
 import { KalimaComponent } from "./casas/kalima/kalima.component";
 import { LaTrochaHouseComponent } from "./casas/la-trocha-house/la-trocha-house.component";
 import { FacturasComponent } from "./facturas/facturas.component";
-import { IpaComponent } from "./pola-type/ipa/ipa.component";
-import { AleComponent } from "./pola-type/ale/ale.component";
-import { StoutComponent } from "./pola-type/stout/stout.component";
-import { LagerComponent } from "./pola-type/lager/lager.component";
 import { BajoComponent } from "./pola-amargor/bajo/bajo.component";
 import { BajoMedioComponent } from "./pola-amargor/bajo-medio/bajo-medio.component";
 import { MedioComponent } from "./pola-amargor/medio/medio.component";
@@ -72,10 +68,6 @@ import { FacturaComponent } from './factura/factura.component';
     KalimaComponent,
     LaTrochaHouseComponent,
     FacturasComponent,
-    IpaComponent,
-    AleComponent,
-    StoutComponent,
-    LagerComponent,
     BajoComponent,
     BajoMedioComponent,
     MedioComponent,
