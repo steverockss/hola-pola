@@ -36,6 +36,13 @@
 .navbar .navbar-nav .nav-link:not(.btn) {
   font-size: 0.75rem;
   padding: 0.5rem 0.7rem;
+  margin-left: 2.5rem;
+  line-height: 1.625rem;
+}
+.dropdown{
+  font-size: 0.75rem;
+  padding: 0.25rem 0.7rem;
+  margin-left: 2.5rem;
   line-height: 1.625rem;
 }
 
@@ -47,8 +54,9 @@
 .navbar .navbar-nav .nav-item .nav-link:not(.btn):focus,
 .navbar .navbar-nav .nav-item .nav-link:not(.btn):hover,
 .navbar .navbar-nav .nav-item .nav-link:not(.btn):active {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: #EBB452;
   border-radius: 0.1875rem;
+  color: black;
 }
 .navbar .logo-container {
   width: 27px;
@@ -81,14 +89,7 @@
 .navbar .button-dropdown .navbar-toggler-bar:nth-child(2) {
   width: 17px;
 }
-/*
-.navbar.navbar-transparent {
-    background-color: transparent !important;
-    box-shadow: none;
-    color: #fff;
-    padding-top: 20px;
-}
-*/
+
 .navbar.bg-white:not(.navbar-transparent) a:not(.dropdown-item) {
   color: #888;
 }
@@ -124,4 +125,10 @@
 }
 .bg-primary {
   background-color: #e84565 !important;
+}
+
+.btn {
+  background-color: #e84565;
+  border: none;
+  color: white;
 }

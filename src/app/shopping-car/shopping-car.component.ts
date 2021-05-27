@@ -15,7 +15,8 @@ export class ShoppingCarComponent implements OnInit {
   envioPrice = 7000;
   constructor() {
     let cart = sessionStorage.getItem("cart");
-    if (cart !== "undefined") {
+    if (cart !== "undefined"  && cart != null) {
+      console.log(cart)
       this.polasItems = JSON.parse(sessionStorage.getItem("cart"));
 
       this.polasItems.forEach((element) => {

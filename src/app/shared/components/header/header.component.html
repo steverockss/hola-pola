@@ -23,12 +23,13 @@
     <div class="navbar-collapse" id="navbarToggler ">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-          <a class="nav-link" href="home"> Home </a>
+          <a class="nav-link" [routerLink]="['/home']"> Home </a>
         </li>
 
         <div class="dropdown">
           <a
-            class="btn btn-success dropdown-toggle"
+            class="btn nav-link"
+            style="color: white"
             id="dropdownMenu2"
             data-toggle="dropdown"
             aria-haspopup="true"
@@ -72,7 +73,8 @@
         </div>
         <div class="dropdown">
           <a
-            class="btn btn-success dropdown-toggle"
+            class="btn nav-link"
+            style="color: white"
             id="dropdownMenu2"
             data-toggle="dropdown"
             aria-haspopup="true"
@@ -87,7 +89,7 @@
           </div>
         </div>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['/aboutus']">Mi cuenta </a>
+          <a class="nav-link" [routerLink]="['/sign-up']">Mi cuenta </a>
         </li>
 
         <li class="nav-item">
@@ -95,7 +97,7 @@
             class="nav-link"
             rel="tooltip"
             data-placement="bottom"
-            href="shopping-car"
+            [routerLink]="['/shopping-car']"
           >
             <i class="fas fa-shopping-cart"></i>
           </a>

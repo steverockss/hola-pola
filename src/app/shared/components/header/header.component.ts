@@ -1,9 +1,6 @@
 import { Component, OnInit, ElementRef } from "@angular/core";
 import { Location } from "@angular/common";
-import { map } from "rxjs/operators";
 import { Observable } from "rxjs";
-import { Router } from "@angular/router";
-import Swal from "sweetalert2";
 @Component({
   selector: "app-header",
   templateUrl: "./header.component.html",
@@ -18,7 +15,6 @@ export class HeaderComponent implements OnInit {
   constructor(
     public location: Location,
     private element: ElementRef,
-    private router: Router
   ) {
 
 
@@ -56,14 +52,5 @@ export class HeaderComponent implements OnInit {
       this.sidebarClose();
     }
   }
-  logOut() {
 
-    Swal.fire({
-      position: "top",
-      icon: "success",
-      title: "Sesión cerrada correctamente",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-  }
 }
