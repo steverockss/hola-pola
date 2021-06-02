@@ -1,0 +1,91 @@
+<div class="wrapper">
+  <div class="landing-section"></div>
+</div>
+<div class="container login-container">
+  <div class="row">
+    <div class="col-md-8 login-form-2" style="margin: 0 auto">
+      <h3 style="text-align: left; color: white">Crea tu cuenta</h3>
+
+      <hr />
+      <form
+        class="text-white"
+      >
+        <h5 style="text-align: left; color: white">Personal</h5>
+        <hr />
+        <div class="form-group">
+          <label>Nombre</label>
+          <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            placeholder="Nombre *"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Apellidos</label>
+          <input
+            type="text"
+            formControlName="username"
+            class="form-control"
+            placeholder="Apellidos *"
+            maxlength="20"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Correo electronico</label>
+          <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            placeholder="Correo electrónico *"
+          />
+        </div>
+
+        <div class="form-group">
+          <label for="">Contraseña</label>
+          <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            placeholder="Contraseña *"
+          />
+        </div>
+        <h5 style="text-align: left; color: white">Contacto</h5>
+        <hr />
+        <div class="form-group">
+          <label>Número de teléfono celular</label>
+          <input
+            type="text"
+            maxlength="10"
+            formControlName="mobilePhone"
+            class="form-control"
+            placeholder="Número de celular *"
+          />
+        </div>
+        <div class="form-group">
+          <label>Dirección</label>
+          <input
+            type="text"
+            maxlength="10"
+            formControlName="address"
+            class="form-control"
+            placeholder="Dirección *"
+          />
+        </div>
+
+        <div class="form-group text-center mt-5">
+          <button  class="btn btn-success btn-round" (click)="onSubmit()">
+            Crear cuenta
+          </button>
+          <div class="form-group text-center mt-4">
+            <a class="ForgetPwd" [routerLink]="['/login']"
+              >¿Ya tienes una cuenta?, inicia sesión</a
+            >
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

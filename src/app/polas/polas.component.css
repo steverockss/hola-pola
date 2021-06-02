@@ -1,0 +1,45 @@
+::ng-deep .collapse {
+   transition: max-height 0.55s, opacity 0.35s ease-in-out;
+   max-height: 0;
+   opacity: 0;
+   display: block !important;
+ }
+ ::ng-deep .collapse.show {
+   max-height: 100rem;
+   opacity: 1;
+ }
+ ::ng-deep .accordion .card {
+   color: white;
+   margin-bottom: 10% !important;
+   background-color: #E84565;
+ }
+ ::ng-deep .accordion .card .card-header {
+   color: white;
+   padding: 0;
+ }
+ ::ng-deep .accordion .card .card-header button {
+   color: white;
+   font-family: "Bobby";
+   padding: 1.2rem;
+ }
+ ::ng-deep .accordion .card .card-header button span {
+   float: left;
+   font-size: 1.2rem;
+ }
+ ::ng-deep .accordion .card .card-body {
+   padding: 1rem;
+ }
+ .btn-success{
+   background-color: transparent;
+   color: white;
+   border: none;
+ }
+ .text{
+   color: black;
+   font-size: 15px;
+   font-weight: bolder;
+ }
+ .page-header-small{
+  min-height: 50vh !important;
+  max-height: 600px;
+}

@@ -1,0 +1,114 @@
+<nav class="navbar navbar-expand-lg fixed-top bg-primary" color-on-scroll="100">
+  <div class="container-fluid ml-2 mr-5">
+    <div class="navbar-translate">
+      <a class="navbar-brand" [routerLink]="['/home']">
+        <img src="./assets/img/logo.png" alt="Logo polas" />
+      </a>
+
+      <button
+        class="navbar-toggler navbar-burger"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarToggler"
+        aria-controls="navbarTogglerDemo02"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+        (click)="sidebarToggle()"
+      >
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+        <span class="navbar-toggler-bar"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse" id="navbarToggler ">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/home']"> Home </a>
+        </li>
+
+        <div class="dropdown">
+          <a
+            class="btn nav-link"
+            style="color: white"
+            id="dropdownMenu2"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Polas
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li class="dropdown-submenu">
+              <a class="dropdown-item" tabindex="-1"> Tips cerveceros </a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-submenu">
+                  <a class="dropdown-item" tabindex="-1"> Duos poderosos </a>
+                  <ul class="dropdown-menu">
+                    <li class="dropdown-item">
+                      <a tabindex="-1" href="duos/queso">Con queso</a>
+                    </li>
+                    <li class="dropdown-item">
+                      <a href="duos/chocolate">Chocolate</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown-item">
+                  <a href="/recetas">Recetas poderosas</a>
+                </li>
+              </ul>
+            </li>
+            <a class="dropdown-item" href="/polas"> Para la sed </a>
+            <li class="dropdown-submenu">
+              <a class="dropdown-item" tabindex="-1"> Polas por la paz </a>
+              <ul class="dropdown-menu">
+                <li class="dropdown-item">
+                  <a tabindex="-1" href="polas/la-trocha">La trocha</a>
+                </li>
+                <li class="dropdown-item">
+                  <a href="polas/la-roja">La roja</a>
+                </li>
+              </ul>
+            </li>
+          </div>
+        </div>
+        <div class="dropdown">
+          <a
+            class="btn nav-link"
+            style="color: white"
+            id="dropdownMenu2"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            Artesanos
+          </a>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            <li class="dropdown-item">
+              <a href="testimonios"> Testimonios </a>
+            </li>
+            <li class="dropdown-item">
+              <a href="procesos"> Procesos </a>
+            </li>
+          </div>
+        </div>
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/sign-up']">Mi cuenta </a>
+        </li>
+
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            rel="tooltip"
+            data-placement="bottom"
+            [routerLink]="['/shopping-car']"
+          >
+            <i class="fas fa-shopping-cart">
+              <span class="badge badge-danger ml-2"> 1 </span>
+            </i>
+           
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,175 @@
+<div class="wrapper">
+  <div
+  class="page-header page-header-small"
+  data-parallax="true"
+  style="background-image: url('https://i.postimg.cc/B6qxWVRX/banner2.jpg')"
+ *ngIf="amargor">
+
+  <div class="banner-text">
+      Arma un plan parchadito y <br>   disfruta de unas polas
+    </div>
+</div>
+  <div class="landing-section" >
+    <div class="section" >
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="card">
+              <div class="card-body">
+                <ngb-accordion
+                  [destroyOnHide]="false"
+                  [closeOthers]="true"
+                  activeIds="panel1"
+                >
+                  <ngb-panel id="panel1">
+                    <ng-template ngbPanelTitle>
+                      <span>Estilo</span>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                      <button class="btn btn-success" (click)="filterAle()">
+                        Ale
+                      </button>
+                      <hr />
+                      <button class="btn btn-success" (click)="filterIpa()">
+                        IPA
+                      </button>
+                      <hr />
+                      <button class="btn btn-success" (click)="filterStout()">
+                        Stout
+                      </button>
+                      <hr />
+                      <button class="btn btn-success" (click)="listPolas()">
+                        Todas
+                      </button>
+                    </ng-template>
+                  </ngb-panel>
+                  <ngb-panel id="panel2">
+                    <ng-template ngbPanelTitle>
+                      <span>Amargo </span>
+                    </ng-template>
+                    <ng-template ngbPanelContent>
+                      <button class="btn btn-success" (click)="filterAmargor('Bajo')">
+                        Bajo
+                      </button>
+                      
+                      <hr />
+                      <button class="btn btn-success" (click)="filterAmargor('Bajo-Medio')">
+                        Bajo/Medio
+                      </button>
+                      <hr />
+                      <button class="btn btn-success" (click)="filterAmargor('Medio')">
+                        Medio
+                      </button>
+                      <hr />
+                      <button class="btn btn-success" (click)="filterAmargor('Alto')">
+                        Alto
+                      </button>
+                    </ng-template>
+                  </ngb-panel>
+                </ngb-accordion>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-9 col-sm-12">
+            <div class="mb-5 col-md-9 text" *ngIf="isAle">
+              <div class="recipe-title" style="text-align: left">ALE</div>
+              <hr class="yellow" />
+              Es la que marca la distinción entre las dos grandes familias de
+              cervezas: Ale y Lager. El término Ale hace referencia al tipo de
+              fermentación y no tiene nada que ver con color, estilo o el
+              cuerpo. Las cervezas tipo Ale pueden ser pálidas u oscuras, tener
+              mucho o poco cuerpo, alta o baja graduación alcohólica y ser más o
+              menos amargas. Todo dependerá, entre otras cosas, de la cantidad y
+              tipo de malta que se utilice, del lúpulo y de la maduración que
+              experimente.
+            </div>
+            <div class="mb-5 col-md-9 text" *ngIf="isIpa">
+              <div class="recipe-title" style="text-align: left">IPA</div>
+              <hr class="yellow" />
+              India: Esto es por el protagonismo que tuvo dicho país en la
+              historia de la cerveza. Dado que los ingleses tenían varias
+              colonias en el país, es lógico y como no existían los métodos de
+              conservación de hoy en día, utilizaron el lúpulo y el alcohol como
+              conservantes naturales. Pale: Siempre que veas el nombre Pale es
+              una cerveza, te está hablando de su malta pálida, esto hace que
+              normalmente sean cervezas pálidas. Ale: Se refiere al tipo de
+              fermentación que es una fermentación alta.
+            </div>
+            <div class="mb-5 col-md-9 text" *ngIf="isStout">
+              <div class="recipe-title" style="text-align: left">STOUT</div>
+              <hr class="yellow" />
+              El color de esta cerveza proviene de sus maltas de alto tostado,
+              que también proveen esos aromas característicos y sabores a café,
+              caramelo y chocolate. Comúnmente la conocemos cómo cerveza negra,
+              es más cremosa, amarga y ácida que el resto. En función de su
+              elaboración las podemos dividir en secas y dulces. Hay una serie
+              de variaciones que incluyen en “Baltic Porter”, “Milk Stout” e
+              “Imperial Stout”; pero la variación más común es la cerveza negra
+              seca, de igual forma es una cerveza de alta fermentación.
+            </div>
+
+            <div class="card-columns">
+              <div class="card pola-card mt-3" *ngFor="let pola of polas">
+                <div class="hovereffect-pola">
+                  <div class="card-title"></div>
+                  <img
+                    class="card-img-top"
+                    src="{{ pola.image }}"
+                    alt="{{ pola.name }}"
+                  />
+
+                  <div class="overlay">
+                    <h2>{{ pola.name }}</h2>
+                    <div class="overlay-text">
+                      Estilo:
+                      <span style="color: black">{{ pola.estilo }}</span>
+                      <br />
+                      Nivel de alcohol:
+                      <span style="color: black"> {{ pola.alcohol }} %</span>
+                      <br />
+                      Nivel de amargor IBU:
+                      <span style="color: black"> 32</span>
+                      <br />
+                      Amargor:
+                      <span style="color: black">
+                        {{ pola.nivel_amargor }}</span
+                      >
+                      <br />
+                      Casa Cervecera:
+                      <span style="color: black">{{ pola.name }}</span>
+
+                      <br />
+                      Maridaje:
+                      <span style="color: black">{{ pola.maridaje }} </span>
+                    </div>
+                  </div>
+                  <div class="card-body pola-card-body mt-5">
+                    <div class="row">
+                      <div class=" col-9 text-center">
+                        <b class="pola-name" style="font-size: 14px">{{
+                          pola.name
+                        }}</b>
+                      </div>
+                      <div
+                        class="col-3 cart-divider"
+                        style="text-align: center"
+                      >
+                        <button
+                          
+                          class="btn-success"
+                          (click)="addToCart(pola)"
+                        >
+                          <i class="fas fa-shopping-cart"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+.title {
+    text-align: left;
+    color: #4bbbbc;
+    font-weight: bold;
+  }
+
+  thead{
+    color: black;
+    background: #EBB452;
+   
+  }
+  .table td {
+    text-align: center;   
+ }
+ .table tr {
+    text-align: center;   
+ }
+
+ a:link {
+  color: blue;
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color:blue;
+  background-color: transparent;
+  text-decoration: none;
+}

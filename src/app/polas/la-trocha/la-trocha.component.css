@@ -1,0 +1,13 @@
+.title {
+    color: #ed6939;
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 650px;
+    }
+  }
+  

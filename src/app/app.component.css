@@ -1,0 +1,4 @@
+@font-face {
+    font-family: "Bobby";
+    src: local("Bobby"), url(/assets/fonts/bobby-rough-soft.ttf) format("truetype");
+}

@@ -1,0 +1,15 @@
+.card-title{
+    color: black;
+    font-weight: bold;
+    text-align: center;
+    font-size: large;
+}
+
+.card-text{
+    color:black;
+    font-size: 14px;
+    font-weight: bolder;
+}
+.btn-success{
+    color: black;
+}

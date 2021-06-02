@@ -1,0 +1,29 @@
+<div class="wrapper">
+  <div class="landing-section">
+    <div class="container">
+      <h5 class="title">Facturas</h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">N° factura</th>
+            <th scope="col">Fecha D/M/A</th>
+            <th scope="col">Pedido</th>
+            <th scope="col">Estado del pedido</th>
+            <th scope="col">Detalle</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr *ngFor="let factura of facturas">
+            <th scope="row" >{{factura.codigo}}</th>
+            <td>{{factura.fecha}}</td>
+            <td>Plan tranqui</td>
+      
+            <td>Enviado</td>
+            <td><a href="/factura/{{factura.codigo}}"><div class="btn btn-rounded"> Ver detalle</div></a></td>
+          </tr>
+ 
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
